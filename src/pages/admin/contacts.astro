@@ -1,0 +1,90 @@
+---
+import Admin from "../../layouts/Admin.astro";
+import {
+  isContactStatus,
+  listInquiries,
+} from "../../lib/contacts";
+import type { ContactStatus } from "../../lib/types";
+
+const filterParam = Astro.url.searchParams.get("status") ?? "";
+const filter = isContactStatus(filterParam) ? filterParam : undefined;
+const items = await listInquiries(filter);
+const saved = Astro.url.searchParams.get("saved") === "1";
+
+const filters: { id?: ContactStatus; label: string }[] = [
+  { label: "All" },
+  { id: "new", label: "New" },
+  { id: "replied", label: "Replied" },
+  { id: "archived", label: "Archived" },
+];
+
+const when = (iso: string) => {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleString("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+};
+---
+
+<Admin title="Contacts" current="contacts">
+  <h1>Contacts</h1>
+  <p class="lede">
+    People who wrote from the site. Reply from here later — for now this is the book.
+    Status and notes are for you; visitors do not see them.
+  </p>
+  {saved && <p class="flash">Saved.</p>}
+
+  <p class="contact-filters">
+    {filters.map((item) => (
+      <a
+        href={item.id ? `/admin/contacts?status=${item.id}` : "/admin/contacts"}
+        class:list={{ "is-current": filter === item.id }}
+      >
+        {item.label}
+      </a>
+    ))}
+  </p>
+
+  {items.length === 0 && (
+    <p class="lede">No messages in this list yet.</p>
+  )}
+
+  {items.map((item) => (
+    <form class="admin-card fields" method="post" action="/api/admin/contacts">
+      <input type="hidden" name="id" value={item.id} />
+      {filter && <input type="hidden" name="filter" value={filter} />}
+      <div class="two">
+        <p class="contact-who">
+          <strong>{item.name}</strong>
+          <a href={`mailto:${item.email}`}>{item.email}</a>
+          {item.phone && <span>{item.phone}</span>}
+        </p>
+        <p class="contact-meta">
+          {when(item.createdAt)}
+          {item.interest && <span>{item.interest}</span>}
+        </p>
+      </div>
+      <p class="contact-message">{item.message}</p>
+      <div class="two">
+        <label>
+          Status
+          <select name="status">
+            <option value="new" selected={item.status === "new"}>New</option>
+            <option value="replied" selected={item.status === "replied"}>Replied</option>
+            <option value="archived" selected={item.status === "archived"}>Archived</option>
+          </select>
+        </label>
+        <label>
+          Notes
+          <textarea name="notes" rows="3">{item.notes}</textarea>
+        </label>
+      </div>
+      <div class="row-actions">
+        <button type="submit" name="action" value="save">Save</button>
+        <button class="danger" type="submit" name="action" value="delete">Delete</button>
+      </div>
+    </form>
+  ))}
+</Admin>

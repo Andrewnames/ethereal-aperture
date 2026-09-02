@@ -80,5 +80,18 @@ async function migrate() {
       mime TEXT,
       bytes BYTEA
     );
+
+    CREATE TABLE IF NOT EXISTS contacts (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      phone TEXT NOT NULL DEFAULT '',
+      interest TEXT NOT NULL DEFAULT '',
+      message TEXT NOT NULL DEFAULT '',
+      source TEXT NOT NULL DEFAULT 'site',
+      status TEXT NOT NULL DEFAULT 'new',
+      notes TEXT NOT NULL DEFAULT '',
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
   `);
 }

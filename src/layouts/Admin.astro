@@ -1,20 +1,27 @@
 ---
 import Base from "./Base.astro";
 import "../styles/admin.css";
+import { countNewInquiries } from "../lib/contacts";
 import { getSite } from "../lib/content";
 
 interface Props {
   title: string;
-  current: "site" | "photos" | "news" | "classes";
+  current: "site" | "photos" | "news" | "classes" | "contacts";
 }
 
 const site = await getSite();
+const newInquiries = await countNewInquiries();
 const { title, current } = Astro.props;
 const links = [
   { href: "/admin", id: "site", label: "Site" },
   { href: "/admin/photos", id: "photos", label: "Photographs" },
   { href: "/admin/news", id: "news", label: "News" },
   { href: "/admin/classes", id: "classes", label: "Classes" },
+  {
+    href: "/admin/contacts",
+    id: "contacts",
+    label: newInquiries ? `Contacts (${newInquiries})` : "Contacts",
+  },
 ];
 ---
 

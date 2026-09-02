@@ -42,7 +42,7 @@ const statuses = [
         <label>Bring<input name="bring" value={cls.bring ?? ""} /></label>
         <label>Cost<input name="cost" value={cls.cost ?? ""} /></label>
         <label>Button label<input name="ctaLabel" value={cls.ctaLabel} /></label>
-        <label>Button URL<input name="ctaHref" value={cls.ctaHref} /></label>
+        <label>Button URL<input name="ctaHref" value={cls.ctaHref} placeholder="Leave blank to use the contact form" /></label>
       </div>
       <div class="row-actions">
         <button type="submit" name="action" value="save">Save</button>
@@ -72,7 +72,7 @@ const statuses = [
       <label>Bring<input name="bring" /></label>
       <label>Cost<input name="cost" /></label>
       <label>Button label<input name="ctaLabel" value="Register →" /></label>
-      <label>Button URL<input name="ctaHref" /></label>
+      <label>Button URL<input name="ctaHref" placeholder="Leave blank to use the contact form" /></label>
     </div>
     <div class="row-actions">
       <button type="submit" name="action" value="save">Add class</button>

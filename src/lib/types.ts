@@ -78,6 +78,21 @@ export type SiteSettings = {
   };
 };
 
+export type ContactStatus = "new" | "replied" | "archived";
+
+export type ContactInquiry = {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  interest: string;
+  message: string;
+  source: string;
+  status: ContactStatus;
+  notes: string;
+  createdAt: string;
+};
+
 export type SiteContent = {
   site: SiteSettings;
   studentWork: Photo[];

@@ -9,7 +9,7 @@ const failed = Astro.url.searchParams.get("error") === "1";
   <div class="admin">
     <div class="login-box">
       <h1>Editor</h1>
-      <p class="lede">Private. For updating photographs, classes, news, and links.</p>
+      <p class="lede">Private. For updating photographs, classes, news, contacts, and links.</p>
       {failed && <p class="flash">That password was not right.</p>}
       <form class="fields" method="post" action="/api/admin/login">
         <label>
