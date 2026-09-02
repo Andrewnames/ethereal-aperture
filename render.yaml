@@ -13,7 +13,7 @@ services:
     plan: starter
     region: oregon
     buildCommand: npm ci && npm run build
-    startCommand: npm run start
+    startCommand: HOST=0.0.0.0 npm run start
     envVars:
       - key: NODE_VERSION
         value: "22"

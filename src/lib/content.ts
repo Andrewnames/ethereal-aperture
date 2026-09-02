@@ -307,6 +307,7 @@ export async function deleteClass(id: string) {
 }
 
 export async function getSiteContent(): Promise<SiteContent> {
+  await seedIfEmpty();
   const [site, studentWork, myWork, portraits, news, upcoming, past] =
     await Promise.all([
       getSite(),
