@@ -26,4 +26,6 @@ Connect the GitHub repo in the Render dashboard (New → Static Site), or open:
 
 https://render.com/deploy?repo=https://github.com/Andrewnames/ethereal-aperture
 
-Pushes to the connected branch rebuild the site.
+## Test
+
+Test commit.
