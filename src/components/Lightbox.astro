@@ -1,0 +1,27 @@
+<div
+  id="lightbox"
+  class="lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Enlarged photograph"
+>
+  <div class="lightbox-bar">
+    <span data-lb-idx>Frame</span>
+    <button type="button" class="lightbox-close" data-lb-close aria-label="Close enlarged photograph">
+      Close (esc)
+    </button>
+  </div>
+  <div class="lightbox-stage">
+    <div class="lightbox-frame">
+      <img data-lb-image hidden alt="" />
+      <div data-lb-empty hidden></div>
+    </div>
+  </div>
+  <div class="lightbox-foot">
+    <p class="lightbox-caption" data-lb-caption></p>
+    <div class="lightbox-nav">
+      <button type="button" data-lb-prev>← Prev</button>
+      <button type="button" data-lb-next>Next →</button>
+    </div>
+  </div>
+</div>

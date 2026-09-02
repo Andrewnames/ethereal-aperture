@@ -1,0 +1,78 @@
+{
+  "upcoming": [
+    {
+      "title": "Darkroom I",
+      "description": "Six evenings of black-and-white printing, from the first test strip to a print you'd hang up.",
+      "status": "registration-open",
+      "ctaLabel": "Register →",
+      "ctaHref": "mailto:etherealaperturephoto@gmail.com?subject=Darkroom%20I",
+      "dates": "Sep 24 – Oct 29, 2026",
+      "time": "Thu, 6:30–9:00 pm",
+      "where": "Lawrenceville darkroom",
+      "level": "Beginner",
+      "bring": "Any 35mm camera, one exposed roll",
+      "cost": "$340, paper included"
+    },
+    {
+      "title": "Cameraless Photography",
+      "description": "Photograms, lumen prints, chemigrams. No camera, no negatives, a lot of trays.",
+      "status": "waitlist",
+      "ctaLabel": "Join waitlist →",
+      "ctaHref": "mailto:etherealaperturephoto@gmail.com?subject=Cameraless%20waitlist",
+      "dates": "Nov 7–8, 2026",
+      "time": "Sat–Sun, 10 am–4 pm",
+      "where": "Braddock, studio annex",
+      "level": "All levels",
+      "bring": "Small flat objects, an apron",
+      "cost": "$180"
+    },
+    {
+      "title": "Expired Film Studio",
+      "description": "We shoot film that should have been thrown out and learn to read what it does.",
+      "status": "coming-soon",
+      "ctaLabel": "Tell me when →",
+      "ctaHref": "mailto:etherealaperturephoto@gmail.com?subject=Expired%20Film%20Studio",
+      "dates": "Winter 2027, dates to come",
+      "where": "To be confirmed",
+      "level": "Some film experience"
+    }
+  ],
+  "past": [
+    {
+      "term": "Spr 2026",
+      "title": "Darkroom I",
+      "note": "Lawrenceville darkroom · six evenings, eight printers, one blown enlarger bulb.",
+      "photosHref": "#student-work"
+    },
+    {
+      "term": "Win 2025",
+      "title": "Wet Plate Basics",
+      "note": "Braddock, studio annex · collodion from scratch, with the mess that implies.",
+      "photosHref": "#student-work"
+    },
+    {
+      "term": "Sum 2025",
+      "title": "Expired Film Studio",
+      "note": "Community darkroom, Wilkinsburg · eleven rolls past their date by a decade.",
+      "photosHref": "#student-work"
+    },
+    {
+      "term": "Spr 2025",
+      "title": "Cameraless Photography",
+      "note": "Braddock, studio annex · two days of trays, sunlight, and patience.",
+      "photosHref": "#student-work"
+    },
+    {
+      "term": "Sum 2024",
+      "title": "Advanced Holga",
+      "note": "Millvale · plastic cameras, taped light leaks, deliberate double exposures.",
+      "photosHref": "#student-work"
+    },
+    {
+      "term": "Fall 2023",
+      "title": "Pinhole Intensive",
+      "note": "Various locations · cameras built from tins, exposures measured in minutes.",
+      "photosHref": "#student-work"
+    }
+  ]
+}

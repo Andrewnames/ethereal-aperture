@@ -1,0 +1,32 @@
+---
+import PhotoFigure from "../components/PhotoFigure.astro";
+import site from "../data/site.json";
+import photos from "../data/my-work.json";
+
+const before = photos.slice(0, 3);
+const after = photos.slice(3);
+---
+
+<section id="my-work" class="section">
+  <div class="section-head">
+    <h2 class="section-title">
+      <span class="secnum">02</span> My work
+      <span class="section-sub">Some things I've seen through the lens</span>
+    </h2>
+    <p class="section-kicker">Current work · ongoing · changes often</p>
+  </div>
+
+  <div class="gallery gallery--work">
+    {before.map((photo) => (
+      <PhotoFigure {...photo} span="4" />
+    ))}
+    <div class="span-4">
+      <p class="statement">{site.artistStatement.pull}</p>
+      <p class="statement-note">{site.artistStatement.note}</p>
+      <p class="statement-meta">{site.artistStatement.rotation}</p>
+    </div>
+    {after.map((photo) => (
+      <PhotoFigure {...photo} span="4" />
+    ))}
+  </div>
+</section>

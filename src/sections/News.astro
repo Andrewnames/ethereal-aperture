@@ -1,0 +1,28 @@
+---
+import items from "../data/news.json";
+---
+
+<section id="news" class="section">
+  <div class="section-head">
+    <h2 class="section-title">
+      <span class="secnum">05</span> News
+    </h2>
+    <p class="section-kicker muted">Newest first · details to confirm</p>
+  </div>
+
+  <ol class="news-list">
+    {items.map((item) => (
+      <li class="news-row">
+        <span class="news-year">{item.year}</span>
+        <div>
+          <h3>{item.headline}</h3>
+          <p>{item.description}</p>
+          {item.flag && <span class="news-flag">{item.flag}</span>}
+          {item.linkHref && item.linkLabel && (
+            <a class="news-link" href={item.linkHref}>{item.linkLabel}</a>
+          )}
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

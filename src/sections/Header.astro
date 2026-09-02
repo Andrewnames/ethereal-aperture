@@ -1,0 +1,25 @@
+---
+import site from "../data/site.json";
+import Hero from "./Hero.astro";
+
+const links = [
+  { id: "student-work", label: "Student Work" },
+  { id: "my-work", label: "My Work" },
+  { id: "about", label: "About" },
+  { id: "classes", label: "Classes" },
+  { id: "news", label: "News" },
+  { id: "contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+  <div class="mast">
+    <a class="wordmark" href="#top">{site.wordmark}</a>
+    <nav class="nav" aria-label="Primary">
+      {links.map((link) => (
+        <a data-nav={link.id} href={`#${link.id}`}>{link.label}</a>
+      ))}
+    </nav>
+  </div>
+  <Hero />
+</header>

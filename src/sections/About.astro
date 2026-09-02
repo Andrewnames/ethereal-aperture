@@ -1,0 +1,43 @@
+---
+import site from "../data/site.json";
+
+const { about } = site;
+---
+
+<section id="about" class="section">
+  <div class="section-head">
+    <h2 class="section-title">
+      <span class="secnum">03</span> About me
+    </h2>
+    {about.draft && (
+      <p class="section-kicker muted">Draft copy — replace with your own words</p>
+    )}
+  </div>
+
+  <div class="gallery gallery--about">
+    <div class="span-4">
+      <div class="photo-frame">
+        {about.portraitSrc && (
+          <img
+            src={about.portraitSrc}
+            alt={about.portraitAlt}
+            width="1500"
+            height="1000"
+            loading="lazy"
+          />
+        )}
+      </div>
+      <p class="portrait-caption">{about.portraitCaption}</p>
+    </div>
+    <div class="span-7">
+      <p class="about-pull">{about.pull}</p>
+      <div class="about-body">
+        {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <div class="about-links">
+        <a href="#classes">Classes →</a>
+        <a href="#student-work">Student work →</a>
+      </div>
+    </div>
+  </div>
+</section>

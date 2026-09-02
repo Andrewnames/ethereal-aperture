@@ -1,0 +1,69 @@
+---
+import data from "../data/classes.json";
+import type { ClassStatus } from "../data/types";
+
+const statusCopy: Record<ClassStatus, string> = {
+  "registration-open": "● Registration open",
+  waitlist: "Waitlist",
+  "coming-soon": "Coming soon",
+  full: "Full",
+  completed: "Completed",
+};
+
+const meta = (cls: (typeof data.upcoming)[number]) =>
+  [
+    ["DATES", cls.dates],
+    ["TIME", cls.time],
+    ["WHERE", cls.where],
+    ["LEVEL", cls.level],
+    ["BRING", cls.bring],
+    ["COST", cls.cost],
+  ].filter(([, value]) => Boolean(value));
+---
+
+<section id="classes" class="section">
+  <div class="section-head">
+    <h2 class="section-title">
+      <span class="secnum">04</span> Classes
+    </h2>
+    <p class="section-note">
+      Small groups. No experience assumed unless the listing says so. Write to me if a class is full — I keep a list.
+    </p>
+  </div>
+
+  <h3 class="subhead">Upcoming</h3>
+  {data.upcoming.map((cls) => (
+    <article class="class-entry">
+      <div class="class-copy">
+        <h4>{cls.title}</h4>
+        <p>{cls.description}</p>
+      </div>
+      <dl class="class-meta">
+        {meta(cls).map(([label, value]) => (
+          <div>
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="class-cta">
+        <span class:list={["status", cls.status === "registration-open" && "status--open"]}>
+          {statusCopy[cls.status as ClassStatus]}
+        </span>
+        <a href={cls.ctaHref}>{cls.ctaLabel}</a>
+      </div>
+    </article>
+  ))}
+
+  <h3 class="subhead subhead--past">Past</h3>
+  <ul class="past-list">
+    {data.past.map((cls) => (
+      <li class="past-row">
+        <span class="past-term">{cls.term}</span>
+        <span>{cls.title}</span>
+        <span class="past-note">{cls.note}</span>
+        <a class="row-link" href={cls.photosHref}>Photographs →</a>
+      </li>
+    ))}
+  </ul>
+</section>

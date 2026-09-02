@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Ethereal Aperture — Cara, experimental and analog photography</title>
+<meta name="description" content="Student work, classes, current experiments, exhibitions, and notes from Cara's life around analog photography." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root { --accent: #C53B2F; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #EEEADD; color: #171714; -webkit-font-smoothing: antialiased; }
+  ::selection { background: rgba(197,59,47,.22); }
+  a { color: #171714; text-decoration: none; }
+  a:hover { color: var(--accent); }
+  *:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (max-width: 900px) {
+    [data-grid] { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important; }
+    [data-grid] > figure, [data-grid] > div { grid-column: auto !important; }
+    [data-class="1"] { grid-template-columns: 1fr !important; }
+    [data-class="1"] > * { grid-column: auto !important; }
+    [data-rows="1"] li { grid-template-columns: 1fr !important; gap: 4px !important; }
+  }
+  @media (max-width: 620px) {
+    [data-hero="1"] { white-space: normal !important; }
+    [data-grid] { grid-template-columns: 1fr !important; gap: 26px !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="min-height:100vh;background:#EEEADD;font-family:'EB Garamond',Georgia,serif;position:relative">
+
+<div data-grain="1" style="position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background-image:url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.16'/></svg>&quot;)"></div>
+
+<header data-part="header" style="padding:22px 4vw 0;position:relative;z-index:1">
+  <div style="display:flex;flex-wrap:wrap;gap:18px 32px;align-items:baseline;justify-content:space-between;border-bottom:1px solid rgba(23,23,20,.3);padding-bottom:12px">
+    <a href="#top" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.16em;text-transform:uppercase">Cara — Ethereal Aperture</a>
+    <nav aria-label="Primary" data-nav-bar style="display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase">
+      <a data-nav="student-work" href="#student-work" style="padding:10px 0">Student Work</a>
+      <a data-nav="my-work" href="#my-work" style="padding:10px 0">My Work</a>
+      <a data-nav="about" href="#about" style="padding:10px 0">About</a>
+      <a data-nav="classes" href="#classes" style="padding:10px 0">Classes</a>
+      <a data-nav="news" href="#news" style="padding:10px 0">News</a>
+      <a data-nav="contact" href="#contact" style="padding:10px 0">Contact</a>
+    </nav>
+  </div>
+
+  <div id="top" style="display:grid;grid-template-columns:1fr;gap:34px;padding:min(11vh,110px) 0 min(9vh,90px);max-width:1500px">
+    <h1 data-hero="1" style="margin:0;font-weight:400;font-size:clamp(36px,6.6vw,140px);line-height:1;letter-spacing:-.02em;text-indent:-.03em;white-space:nowrap">
+      <em style="font-style:italic;color:var(--accent)">Ethereal</em> Aperture
+    </h1>
+
+    <dl style="margin:0;width:100%;max-width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px 44px;border-top:1px solid rgba(23,23,20,.3);padding-top:16px">
+      <div>
+        <dt style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase">ethereal <span style="color:rgba(23,23,20,.55)">adj.</span></dt>
+        <dd style="margin:2px 0 0;font-size:19px;line-height:1.5;font-style:italic">extremely delicate, light, not of this world.</dd>
+        <dd style="margin:8px 0 0;font-family:'Courier Prime',monospace;font-size:14px;line-height:1.7;letter-spacing:.01em;color:rgba(23,23,20,.8)">Photography is fleeting. The light is there for a second and then it isn't, and some of it will never come back the same way.</dd>
+      </div>
+      <div>
+        <dt style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase">aperture <span style="color:rgba(23,23,20,.55)">n.</span></dt>
+        <dd style="margin:2px 0 0;font-size:19px;line-height:1.5;font-style:italic">an opening, hole, or gap; the opening in a lens that admits light.</dd>
+        <dd style="margin:8px 0 0;font-family:'Courier Prime',monospace;font-size:14px;line-height:1.7;letter-spacing:.01em;color:rgba(23,23,20,.8)">The photographs are openings of their own — into what we noticed, what we were willing to look at, and what we made from it.</dd>
+      </div>
+      <p style="margin:0;grid-column:1 / -1;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.7;letter-spacing:.03em;color:rgba(23,23,20,.7)">And I really love alliteration.</p>
+    </dl>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px 6vw;align-items:start;max-width:1180px">
+      <p style="margin:0;font-size:clamp(24px,2.5vw,40px);line-height:1.24;max-width:22ch;font-style:italic">Experiments, teaching, mistakes, darkrooms, and other things I find by looking closely.</p>
+      <div style="font-family:'Courier Prime',monospace;font-size:13px;line-height:1.9;letter-spacing:.04em;color:rgba(23,23,20,.72);max-width:34ch">
+        <div style="border-top:1px solid rgba(23,23,20,.3);padding-top:10px">CARA — PHOTOGRAPHY, TEACHING<br />PITTSBURGH, PA<br />ANALOG · CAMERALESS · EXPERIMENTAL</div>
+        <div style="margin-top:18px">01 STUDENT WORK<br />02 MY WORK<br />03 ABOUT<br />04 CLASSES<br />05 NEWS<br />06 CONTACT</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="student-work" style="scroll-margin-top:20px;padding:0 4vw;border-top:1px solid rgba(23,23,20,.3);position:relative;z-index:1">
+  <div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:flex-end;justify-content:space-between;padding:min(9vh,92px) 0 34px">
+    <h2 style="margin:0;font-weight:400;font-size:clamp(40px,6vw,92px);line-height:.95;letter-spacing:-.015em">
+      <span data-secnum style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.16em;vertical-align:super;color:rgba(23,23,20,.55)">01</span> Student work
+    </h2>
+    <p style="margin:0;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.8;letter-spacing:.03em;max-width:44ch;color:rgba(23,23,20,.78)">A selection pulled from classes. Photographs published with permission. Click any frame to enlarge.</p>
+  </div>
+
+  <div data-sheet="student" data-grid="1" style="display:grid;grid-template-columns:repeat(12,1fr);gap:34px 18px;padding-bottom:min(9vh,92px)">
+
+    <figure data-slot="s01" data-idx="01" data-ratio="3/2" data-cap="Joe Smith · Advanced Holga · Summer 2024" data-alt="Blurred figure standing beside a bright window in an otherwise dark room." tabindex="0" role="button" aria-label="Enlarge: Joe Smith, Advanced Holga, Summer 2024" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s01" shape="rect" fit="cover" placeholder="student photo 01"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">01 </span>Joe Smith · Advanced Holga · Summer 2024</figcaption>
+    </figure>
+
+    <figure data-slot="s02" data-idx="02" data-ratio="3/2" data-cap="Mara Ellison · Darkroom I · Fall 2024" data-alt="Hand-printed portrait with heavy dust and uneven exposure across the left edge." tabindex="0" role="button" aria-label="Enlarge: Mara Ellison, Darkroom I, Fall 2024" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s02" shape="rect" fit="cover" placeholder="student photo 02"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">02 </span>Mara Ellison · Darkroom I · Fall 2024</figcaption>
+    </figure>
+
+    <figure data-slot="s03" data-idx="03" data-ratio="3/2" data-cap="R. Okonkwo · Cameraless Photography · Spring 2025" data-alt="Photogram of scissors and thread, white shapes on deep grey paper." tabindex="0" role="button" aria-label="Enlarge: R. Okonkwo, Cameraless Photography, Spring 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s03" shape="rect" fit="cover" placeholder="student photo 03"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">03 </span>R. Okonkwo · Cameraless Photography · Spring 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s04" data-idx="04" data-ratio="3/2" data-cap="Anonymous · Wet Plate Basics · Winter 2025" data-alt="Collodion plate portrait, shoulders and jaw visible, top of the frame dissolving into streaks." tabindex="0" role="button" aria-label="Enlarge: Anonymous, Wet Plate Basics, Winter 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s04" shape="rect" fit="cover" placeholder="student photo 04"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">04 </span>Anonymous · Wet Plate Basics · Winter 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s05" data-idx="05" data-ratio="3/2" data-cap="Devi P. · Expired Film Studio · Summer 2025" data-alt="Sun-bleached parking lot with magenta banding across the sky." tabindex="0" role="button" aria-label="Enlarge: Devi P., Expired Film Studio, Summer 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s05" shape="rect" fit="cover" placeholder="student photo 05"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">05 </span>Devi P. · Expired Film Studio · Summer 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s06" data-idx="06" data-ratio="3/2" data-cap="Tomás Vega · Pinhole Intensive · Fall 2023" data-alt="Long-exposure pinhole view of a stairwell, walls curving inward." tabindex="0" role="button" aria-label="Enlarge: Tomás Vega, Pinhole Intensive, Fall 2023" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s06" shape="rect" fit="cover" placeholder="student photo 06"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">06 </span>Tomás Vega · Pinhole Intensive · Fall 2023</figcaption>
+    </figure>
+
+    <figure data-slot="s07" data-idx="07" data-ratio="3/2" data-cap="Ines Adler · Darkroom I · Fall 2024" data-alt="Test strip of a doorway printed in five widening bands of grey." tabindex="0" role="button" aria-label="Enlarge: Ines Adler, Darkroom I, Fall 2024" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s07" shape="rect" fit="cover" placeholder="student photo 07"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">07 </span>Ines Adler · Darkroom I · Fall 2024</figcaption>
+    </figure>
+
+    <figure data-slot="s08" data-idx="08" data-ratio="3/2" data-cap="Joe Smith · Advanced Holga · Summer 2024" data-alt="Two overlapping exposures of a chain-link fence and a dog's head." tabindex="0" role="button" aria-label="Enlarge: Joe Smith, Advanced Holga, Summer 2024" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s08" shape="rect" fit="cover" placeholder="student photo 08"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">08 </span>Joe Smith · Advanced Holga · Summer 2024</figcaption>
+    </figure>
+
+    <figure data-slot="s09" data-idx="09" data-ratio="3/2" data-cap="Lu Chen · Expired Film Studio · Summer 2025" data-alt="Wide view of a flooded field at dusk, colour shifted toward green." tabindex="0" role="button" aria-label="Enlarge: Lu Chen, Expired Film Studio, Summer 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s09" shape="rect" fit="cover" placeholder="student photo 09"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">09 </span>Lu Chen · Expired Film Studio · Summer 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s10" data-idx="10" data-ratio="3/2" data-cap="Student work · Cameraless Photography · Spring 2025" data-alt="Chemigram with concentric dark rings spreading from the lower corner." tabindex="0" role="button" aria-label="Enlarge: Student work, Cameraless Photography, Spring 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s10" shape="rect" fit="cover" placeholder="student photo 10"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">10 </span>Student work · Cameraless Photography · Spring 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s11" data-idx="11" data-ratio="3/2" data-cap="Priya N. · Pinhole Intensive · Fall 2023" data-alt="Vertical pinhole exposure of a bare tree, sky burned nearly white." tabindex="0" role="button" aria-label="Enlarge: Priya N., Pinhole Intensive, Fall 2023" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s11" shape="rect" fit="cover" placeholder="student photo 11"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">11 </span>Priya N. · Pinhole Intensive · Fall 2023</figcaption>
+    </figure>
+
+    <figure data-slot="s12" data-idx="12" data-ratio="3/2" data-cap="Mara Ellison · Darkroom I · Fall 2024" data-alt="Kitchen table lit from one side, print showing pronounced grain." tabindex="0" role="button" aria-label="Enlarge: Mara Ellison, Darkroom I, Fall 2024" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s12" shape="rect" fit="cover" placeholder="student photo 12"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">12 </span>Mara Ellison · Darkroom I · Fall 2024</figcaption>
+    </figure>
+
+    <figure data-slot="s13" data-idx="13" data-ratio="3/2" data-cap="Anonymous · Wet Plate Basics · Winter 2025" data-alt="Plate with a thumbprint at the edge and a slow fade toward the centre." tabindex="0" role="button" aria-label="Enlarge: Anonymous, Wet Plate Basics, Winter 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s13" shape="rect" fit="cover" placeholder="student photo 13"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">13 </span>Anonymous · Wet Plate Basics · Winter 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s14" data-idx="14" data-ratio="3/2" data-cap="Devi P. · Advanced Holga · Summer 2024" data-alt="Beach seen through a light leak, one half of the frame flared orange." tabindex="0" role="button" aria-label="Enlarge: Devi P., Advanced Holga, Summer 2024" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s14" shape="rect" fit="cover" placeholder="student photo 14"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">14 </span>Devi P. · Advanced Holga · Summer 2024</figcaption>
+    </figure>
+
+    <figure data-slot="s15" data-idx="15" data-ratio="3/2" data-cap="R. Okonkwo · Cameraless Photography · Spring 2025" data-alt="Lumen print of grasses, pink and brown, edges curling." tabindex="0" role="button" aria-label="Enlarge: R. Okonkwo, Cameraless Photography, Spring 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s15" shape="rect" fit="cover" placeholder="student photo 15"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">15 </span>R. Okonkwo · Cameraless Photography · Spring 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s16" data-idx="16" data-ratio="3/2" data-cap="Tomás Vega · Darkroom I · Spring 2026" data-alt="Standing figure printed very dark, only a collar and one hand legible." tabindex="0" role="button" aria-label="Enlarge: Tomás Vega, Darkroom I, Spring 2026" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s16" shape="rect" fit="cover" placeholder="student photo 16"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">16 </span>Tomás Vega · Darkroom I · Spring 2026</figcaption>
+    </figure>
+
+    <figure data-slot="s17" data-idx="17" data-ratio="3/2" data-cap="Ines Adler · Expired Film Studio · Summer 2025" data-alt="Roll of film photographed twice, a bus stop layered over a bedroom wall." tabindex="0" role="button" aria-label="Enlarge: Ines Adler, Expired Film Studio, Summer 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s17" shape="rect" fit="cover" placeholder="student photo 17"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">17 </span>Ines Adler · Expired Film Studio · Summer 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s18" data-idx="18" data-ratio="3/2" data-cap="Lu Chen · Pinhole Intensive · Fall 2023" data-alt="Square pinhole frame of a window ledge, corners heavily vignetted." tabindex="0" role="button" aria-label="Enlarge: Lu Chen, Pinhole Intensive, Fall 2023" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s18" shape="rect" fit="cover" placeholder="student photo 18"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">18 </span>Lu Chen · Pinhole Intensive · Fall 2023</figcaption>
+    </figure>
+
+    <figure data-slot="s19" data-idx="19" data-ratio="3/2" data-cap="Priya N. · Wet Plate Basics · Winter 2025" data-alt="Wet plate of a coat on a hook, silver flaking along the right side." tabindex="0" role="button" aria-label="Enlarge: Priya N., Wet Plate Basics, Winter 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s19" shape="rect" fit="cover" placeholder="student photo 19"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">19 </span>Priya N. · Wet Plate Basics · Winter 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s20" data-idx="20" data-ratio="3/2" data-cap="Joe Smith · Darkroom I · Spring 2026" data-alt="Two children running past a garage door, motion smeared to the right." tabindex="0" role="button" aria-label="Enlarge: Joe Smith, Darkroom I, Spring 2026" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s20" shape="rect" fit="cover" placeholder="student photo 20"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">20 </span>Joe Smith · Darkroom I · Spring 2026</figcaption>
+    </figure>
+
+    <figure data-slot="s21" data-idx="21" data-ratio="3/2" data-cap="Mara Ellison · Cameraless Photography · Spring 2025" data-alt="Photogram of a lace collar, threads rendered as fine white lines." tabindex="0" role="button" aria-label="Enlarge: Mara Ellison, Cameraless Photography, Spring 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s21" shape="rect" fit="cover" placeholder="student photo 21"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">21 </span>Mara Ellison · Cameraless Photography · Spring 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s22" data-idx="22" data-ratio="3/2" data-cap="Anonymous · Advanced Holga · Summer 2024" data-alt="Interior corner with a bright doorway, frame tilted and soft at the edges." tabindex="0" role="button" aria-label="Enlarge: Anonymous, Advanced Holga, Summer 2024" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s22" shape="rect" fit="cover" placeholder="student photo 22"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">22 </span>Anonymous · Advanced Holga · Summer 2024</figcaption>
+    </figure>
+
+    <figure data-slot="s23" data-idx="23" data-ratio="3/2" data-cap="Devi P. · Darkroom I · Spring 2026" data-alt="Portrait printed low-contrast, face nearly the same grey as the wall behind it." tabindex="0" role="button" aria-label="Enlarge: Devi P., Darkroom I, Spring 2026" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s23" shape="rect" fit="cover" placeholder="student photo 23"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">23 </span>Devi P. · Darkroom I · Spring 2026</figcaption>
+    </figure>
+
+    <figure data-slot="s24" data-idx="24" data-ratio="3/2" data-cap="Tomás Vega · Expired Film Studio · Summer 2025" data-alt="Row of houses under a sky broken into horizontal colour bands." tabindex="0" role="button" aria-label="Enlarge: Tomás Vega, Expired Film Studio, Summer 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s24" shape="rect" fit="cover" placeholder="student photo 24"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">24 </span>Tomás Vega · Expired Film Studio · Summer 2025</figcaption>
+    </figure>
+
+    <figure data-slot="s25" data-idx="25" data-ratio="3/2" data-cap="Ines Adler · Pinhole Intensive · Fall 2023" data-alt="Sun path traced as a pale arc across a rooftop over several hours." tabindex="0" role="button" aria-label="Enlarge: Ines Adler, Pinhole Intensive, Fall 2023" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s25" shape="rect" fit="cover" placeholder="student photo 25"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">25 </span>Ines Adler · Pinhole Intensive · Fall 2023</figcaption>
+    </figure>
+
+    <figure data-slot="s26" data-idx="26" data-ratio="3/2" data-cap="Lu Chen · Wet Plate Basics · Winter 2025" data-alt="Wide plate of a workshop bench, tools and trays, corners fogged." tabindex="0" role="button" aria-label="Enlarge: Lu Chen, Wet Plate Basics, Winter 2025" style="grid-column:span 3;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="s26" shape="rect" fit="cover" placeholder="student photo 26"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;line-height:1.5;letter-spacing:.02em"><span data-num style="color:rgba(23,23,20,.45)">26 </span>Lu Chen · Wet Plate Basics · Winter 2025</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<section id="my-work" style="scroll-margin-top:20px;padding:0 4vw;border-top:1px solid rgba(23,23,20,.3);position:relative;z-index:1">
+  <div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:flex-end;justify-content:space-between;padding:min(9vh,92px) 0 34px">
+    <h2 style="margin:0;font-weight:400;font-size:clamp(40px,6vw,92px);line-height:.95;letter-spacing:-.015em">
+      <span data-secnum style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.16em;vertical-align:super;color:rgba(23,23,20,.55)">02</span> My work
+      <span style="display:block;margin-top:10px;font-size:clamp(20px,1.8vw,28px);line-height:1.3;font-style:italic;color:rgba(23,23,20,.8)">Some things I've seen through the lens</span>
+    </h2>
+    <p style="margin:0;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)">Current work · ongoing · changes often</p>
+  </div>
+
+  <div data-grid="1" style="display:grid;grid-template-columns:repeat(12,1fr);gap:40px 18px;padding-bottom:min(9vh,92px)">
+    <figure data-slot="c01" data-idx="M1" data-ratio="3/2" data-cap="Second Development · silver gelatin, reprinted 2026" data-alt="Grey field crossed by two developer marks that spread outward from the centre." tabindex="0" role="button" aria-label="Enlarge: Second Development" style="grid-column:span 4;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="c01" shape="rect" fit="cover" placeholder="Cara photo 01"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.02em">Second Development · silver gelatin, reprinted 2026</figcaption>
+    </figure>
+
+    <figure data-slot="c02" data-idx="M2" data-ratio="3/2" data-cap="Untitled (kitchen) · expired Portra, 2025" data-alt="Frame of a kitchen doorway with a green cast across the lower half." tabindex="0" role="button" aria-label="Enlarge: Untitled (kitchen)" style="grid-column:span 4;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="c02" shape="rect" fit="cover" placeholder="Cara photo 02"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.02em">Untitled (kitchen) · expired Portra, 2025</figcaption>
+    </figure>
+
+    <figure data-slot="c03" data-idx="M3" data-ratio="3/2" data-cap="Test print, third attempt · 2025" data-alt="Print divided into four exposure steps, darkest at the top left." tabindex="0" role="button" aria-label="Enlarge: Test print, third attempt" style="grid-column:span 4;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="c03" shape="rect" fit="cover" placeholder="Cara photo 03"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.02em">Test print, third attempt · 2025</figcaption>
+    </figure>
+
+    <div style="grid-column:span 4">
+      <p style="margin:0 0 22px;font-size:clamp(20px,1.7vw,27px);line-height:1.35;font-style:italic;text-wrap:pretty">I'm less interested in a perfect image than in what happens when the process slips, doubles back, or makes its own decisions.</p>
+      <p style="margin:0;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.85;letter-spacing:.02em;color:rgba(23,23,20,.8);text-wrap:pretty">Most of what I make now starts as a mistake I decide to keep. I re-develop old prints, leave film in the wrong places, and let the chemistry work longer than it should.</p>
+      <p style="margin:20px 0 0;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(23,23,20,.55)">Selection rotates · 2024—2026</p>
+    </div>
+
+    <figure data-slot="c04" data-idx="M4" data-ratio="3/2" data-cap="Allegheny, twice · double exposure, 2024" data-alt="River bank exposed twice, trees standing in two positions at once." tabindex="0" role="button" aria-label="Enlarge: Allegheny, twice" style="grid-column:span 4;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="c04" shape="rect" fit="cover" placeholder="Cara photo 04"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.02em">Allegheny, twice · double exposure, 2024</figcaption>
+    </figure>
+
+    <figure data-slot="c05" data-idx="M5" data-ratio="3/2" data-cap="Fixer stain (kept) · 2026" data-alt="Print with a pale bloom across one corner where fixer was left standing." tabindex="0" role="button" aria-label="Enlarge: Fixer stain (kept)" style="grid-column:span 4;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="c05" shape="rect" fit="cover" placeholder="Cara photo 05"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.02em">Fixer stain (kept) · 2026</figcaption>
+    </figure>
+
+    <figure data-slot="c06" data-idx="M6" data-ratio="3/2" data-cap="Notes for a class · 2026" data-alt="Contact sheet marked with grease pencil, three frames circled." tabindex="0" role="button" aria-label="Enlarge: Notes for a class" style="grid-column:span 4;margin:0;cursor:pointer" onClick="{{ open }}" onKeyDown="{{ keyOpen }}">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="c06" shape="rect" fit="cover" placeholder="Cara photo 06"></image-slot></div>
+      <figcaption style="margin-top:7px;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.02em">Notes for a class · 2026</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="about" style="scroll-margin-top:20px;padding:0 4vw;border-top:1px solid rgba(23,23,20,.3);position:relative;z-index:1">
+  <div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:flex-end;justify-content:space-between;padding:min(9vh,92px) 0 34px">
+    <h2 style="margin:0;font-weight:400;font-size:clamp(40px,6vw,92px);line-height:.95;letter-spacing:-.015em">
+      <span data-secnum style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.16em;vertical-align:super;color:rgba(23,23,20,.55)">03</span> About me
+    </h2>
+    <p style="margin:0;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(23,23,20,.55)">Draft copy — replace with your own words</p>
+  </div>
+
+  <div data-grid="1" style="display:grid;grid-template-columns:repeat(12,1fr);gap:40px 18px;padding-bottom:min(9vh,92px)">
+    <div style="grid-column:span 4">
+      <div style="position:relative;aspect-ratio:3/2;background:#e5e1d4;border:1px solid rgba(23,23,20,.14)"><image-slot id="portrait" shape="rect" fit="cover" placeholder="portrait / working photograph"></image-slot></div>
+      <p style="margin:8px 0 0;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.02em;color:rgba(23,23,20,.7)">In the darkroom, Lawrenceville, 2026</p>
+    </div>
+    <div style="grid-column:span 7">
+      <p style="margin:0 0 26px;font-size:clamp(22px,2.1vw,34px);line-height:1.3;font-style:italic;text-wrap:pretty">I teach classes where the camera is allowed to misbehave.</p>
+      <div style="font-size:18px;line-height:1.6;max-width:64ch;text-wrap:pretty">
+        <p style="margin:0 0 18px">I started with a borrowed camera and no idea what I was doing, which turned out to be the right way in. A friend showed me how to develop a roll in a kitchen sink, and the part that stayed with me wasn't the picture — it was watching something appear that I had only partly controlled. I've worked in analog ever since, mostly black-and-white, mostly at home or in shared darkrooms.</p>
+        <p style="margin:0 0 18px">Now I re-develop old prints, shoot film long past its date, and make photographs without a camera at all. The work is slow and a fair amount of it fails. I keep the failures that are more interesting than what I intended.</p>
+        <p style="margin:0 0 18px">I teach in and around Pittsburgh — darkroom evenings in Lawrenceville, weekend workshops in Braddock, and occasional sessions at community spaces in the region. Classes are small. We start with what the process actually does rather than with rules, and everyone prints. If you've never touched film, that's a fine place to begin; if you've been printing for years, there's usually something in the class that misbehaves in a new way.</p>
+        <p style="margin:0">My photographs have appeared in the Halide Project publication, at an analog photography festival in Pittsburgh, and in regional group shows. I'd rather the classes and the student work speak for the teaching, so I keep this part short.</p>
+      </div>
+      <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 26px;font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase">
+        <a href="#classes" style="border-bottom:1px solid rgba(23,23,20,.4);padding:10px 0">Classes →</a>
+        <a href="#student-work" style="border-bottom:1px solid rgba(23,23,20,.4);padding:10px 0">Student work →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="classes" style="scroll-margin-top:20px;padding:0 4vw;border-top:1px solid rgba(23,23,20,.3);position:relative;z-index:1">
+  <div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:flex-end;justify-content:space-between;padding:min(9vh,92px) 0 34px">
+    <h2 style="margin:0;font-weight:400;font-size:clamp(40px,6vw,92px);line-height:.95;letter-spacing:-.015em">
+      <span data-secnum style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.16em;vertical-align:super;color:rgba(23,23,20,.55)">04</span> Classes
+    </h2>
+    <p style="margin:0;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.8;letter-spacing:.03em;max-width:40ch;color:rgba(23,23,20,.78)">Small groups. No experience assumed unless the listing says so. Write to me if a class is full — I keep a list.</p>
+  </div>
+
+  <h3 style="margin:0 0 4px;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(23,23,20,.6)">Upcoming</h3>
+
+  <article data-class="1" style="display:grid;grid-template-columns:repeat(12,1fr);gap:14px 18px;border-top:1px solid rgba(23,23,20,.3);padding:26px 0">
+    <div style="grid-column:span 5">
+      <h4 style="margin:0 0 8px;font-weight:400;font-size:clamp(26px,2.4vw,38px);line-height:1.1">Darkroom I</h4>
+      <p style="margin:0;font-family:'Courier Prime',monospace;font-size:14px;line-height:1.7;max-width:38ch;color:rgba(23,23,20,.85)">Six evenings of black-and-white printing, from the first test strip to a print you'd hang up.</p>
+    </div>
+    <dl style="grid-column:span 4;margin:0;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.9;letter-spacing:.02em">
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">DATES</dt><dd style="margin:0">Sep 24 – Oct 29, 2026</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">TIME</dt><dd style="margin:0">Thu, 6:30–9:00 pm</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">WHERE</dt><dd style="margin:0">Lawrenceville darkroom</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">LEVEL</dt><dd style="margin:0">Beginner</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">BRING</dt><dd style="margin:0">Any 35mm camera, one exposed roll</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">COST</dt><dd style="margin:0">$340, paper included</dd></div>
+    </dl>
+    <div style="grid-column:span 3;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+      <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:5px 9px">● Registration open</span>
+      <a href="mailto:etherealaperturephoto@gmail.com?subject=Darkroom%20I" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(23,23,20,.4);padding:10px 0">Register →</a>
+    </div>
+  </article>
+
+  <article data-class="1" style="display:grid;grid-template-columns:repeat(12,1fr);gap:14px 18px;border-top:1px solid rgba(23,23,20,.3);padding:26px 0">
+    <div style="grid-column:span 5">
+      <h4 style="margin:0 0 8px;font-weight:400;font-size:clamp(26px,2.4vw,38px);line-height:1.1">Cameraless Photography</h4>
+      <p style="margin:0;font-family:'Courier Prime',monospace;font-size:14px;line-height:1.7;max-width:38ch;color:rgba(23,23,20,.85)">Photograms, lumen prints, chemigrams. No camera, no negatives, a lot of trays.</p>
+    </div>
+    <dl style="grid-column:span 4;margin:0;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.9;letter-spacing:.02em">
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">DATES</dt><dd style="margin:0">Nov 7–8, 2026</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">TIME</dt><dd style="margin:0">Sat–Sun, 10 am–4 pm</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">WHERE</dt><dd style="margin:0">Braddock, studio annex</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">LEVEL</dt><dd style="margin:0">All levels</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">BRING</dt><dd style="margin:0">Small flat objects, an apron</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">COST</dt><dd style="margin:0">$180</dd></div>
+    </dl>
+    <div style="grid-column:span 3;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+      <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(23,23,20,.6);border:1px solid rgba(23,23,20,.3);padding:5px 9px">Waitlist</span>
+      <a href="mailto:etherealaperturephoto@gmail.com?subject=Cameraless%20waitlist" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(23,23,20,.4);padding:10px 0">Join waitlist →</a>
+    </div>
+  </article>
+
+  <article data-class="1" style="display:grid;grid-template-columns:repeat(12,1fr);gap:14px 18px;border-top:1px solid rgba(23,23,20,.3);padding:26px 0">
+    <div style="grid-column:span 5">
+      <h4 style="margin:0 0 8px;font-weight:400;font-size:clamp(26px,2.4vw,38px);line-height:1.1">Expired Film Studio</h4>
+      <p style="margin:0;font-family:'Courier Prime',monospace;font-size:14px;line-height:1.7;max-width:38ch;color:rgba(23,23,20,.85)">We shoot film that should have been thrown out and learn to read what it does.</p>
+    </div>
+    <dl style="grid-column:span 4;margin:0;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.9;letter-spacing:.02em">
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">DATES</dt><dd style="margin:0">Winter 2027, dates to come</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">WHERE</dt><dd style="margin:0">To be confirmed</dd></div>
+      <div style="display:flex;gap:10px"><dt style="width:9ch;color:rgba(23,23,20,.55)">LEVEL</dt><dd style="margin:0">Some film experience</dd></div>
+    </dl>
+    <div style="grid-column:span 3;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+      <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(23,23,20,.6);border:1px solid rgba(23,23,20,.3);padding:5px 9px">Coming soon</span>
+      <a href="mailto:etherealaperturephoto@gmail.com?subject=Expired%20Film%20Studio" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(23,23,20,.4);padding:10px 0">Tell me when →</a>
+    </div>
+  </article>
+
+  <h3 style="margin:52px 0 4px;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(23,23,20,.6)">Past</h3>
+  <ul data-rows="1" style="list-style:none;margin:0;padding:0 0 min(9vh,92px);font-family:'Courier Prime',monospace;font-size:14px">
+    <li style="display:grid;grid-template-columns:11ch minmax(18ch,24ch) 1fr auto;gap:10px 22px;align-items:baseline;border-top:1px solid rgba(23,23,20,.25);padding:14px 0">
+      <span style="color:rgba(23,23,20,.55)">Spr 2026</span><span>Darkroom I</span><span style="color:rgba(23,23,20,.8)">Lawrenceville darkroom · six evenings, eight printers, one blown enlarger bulb.</span><a href="#student-work" style="border-bottom:1px solid rgba(23,23,20,.4);padding:6px 0">Photographs →</a>
+    </li>
+    <li style="display:grid;grid-template-columns:11ch minmax(18ch,24ch) 1fr auto;gap:10px 22px;align-items:baseline;border-top:1px solid rgba(23,23,20,.25);padding:14px 0">
+      <span style="color:rgba(23,23,20,.55)">Win 2025</span><span>Wet Plate Basics</span><span style="color:rgba(23,23,20,.8)">Braddock, studio annex · collodion from scratch, with the mess that implies.</span><a href="#student-work" style="border-bottom:1px solid rgba(23,23,20,.4);padding:6px 0">Photographs →</a>
+    </li>
+    <li style="display:grid;grid-template-columns:11ch minmax(18ch,24ch) 1fr auto;gap:10px 22px;align-items:baseline;border-top:1px solid rgba(23,23,20,.25);padding:14px 0">
+      <span style="color:rgba(23,23,20,.55)">Sum 2025</span><span>Expired Film Studio</span><span style="color:rgba(23,23,20,.8)">Community darkroom, Wilkinsburg · eleven rolls past their date by a decade.</span><a href="#student-work" style="border-bottom:1px solid rgba(23,23,20,.4);padding:6px 0">Photographs →</a>
+    </li>
+    <li style="display:grid;grid-template-columns:11ch minmax(18ch,24ch) 1fr auto;gap:10px 22px;align-items:baseline;border-top:1px solid rgba(23,23,20,.25);padding:14px 0">
+      <span style="color:rgba(23,23,20,.55)">Spr 2025</span><span>Cameraless Photography</span><span style="color:rgba(23,23,20,.8)">Braddock, studio annex · two days of trays, sunlight, and patience.</span><a href="#student-work" style="border-bottom:1px solid rgba(23,23,20,.4);padding:6px 0">Photographs →</a>
+    </li>
+    <li style="display:grid;grid-template-columns:11ch minmax(18ch,24ch) 1fr auto;gap:10px 22px;align-items:baseline;border-top:1px solid rgba(23,23,20,.25);padding:14px 0">
+      <span style="color:rgba(23,23,20,.55)">Sum 2024</span><span>Advanced Holga</span><span style="color:rgba(23,23,20,.8)">Millvale · plastic cameras, taped light leaks, deliberate double exposures.</span><a href="#student-work" style="border-bottom:1px solid rgba(23,23,20,.4);padding:6px 0">Photographs →</a>
+    </li>
+    <li style="display:grid;grid-template-columns:11ch minmax(18ch,24ch) 1fr auto;gap:10px 22px;align-items:baseline;border-top:1px solid rgba(23,23,20,.25);padding:14px 0">
+      <span style="color:rgba(23,23,20,.55)">Fall 2023</span><span>Pinhole Intensive</span><span style="color:rgba(23,23,20,.8)">Various locations · cameras built from tins, exposures measured in minutes.</span><a href="#student-work" style="border-bottom:1px solid rgba(23,23,20,.4);padding:6px 0">Photographs →</a>
+    </li>
+  </ul>
+</section>
+
+<section id="news" style="scroll-margin-top:20px;padding:0 4vw;border-top:1px solid rgba(23,23,20,.3);position:relative;z-index:1">
+  <div style="display:flex;flex-wrap:wrap;gap:10px 40px;align-items:flex-end;justify-content:space-between;padding:min(9vh,92px) 0 34px">
+    <h2 style="margin:0;font-weight:400;font-size:clamp(40px,6vw,92px);line-height:.95;letter-spacing:-.015em">
+      <span data-secnum style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.16em;vertical-align:super;color:rgba(23,23,20,.55)">05</span> News
+    </h2>
+    <p style="margin:0;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(23,23,20,.55)">Newest first · details to confirm</p>
+  </div>
+
+  <ol data-rows="1" style="list-style:none;margin:0;padding:0 0 min(9vh,92px);font-family:'Courier Prime',monospace">
+    <li style="display:grid;grid-template-columns:9ch 1fr;gap:8px 26px;border-top:1px solid rgba(23,23,20,.3);padding:22px 0">
+      <span style="font-size:13px;color:rgba(23,23,20,.55);letter-spacing:.06em">2026</span>
+      <div>
+        <h3 style="margin:0 0 6px;font-family:'EB Garamond',serif;font-weight:400;font-size:clamp(22px,2vw,30px);line-height:1.15">Group show, autumn 2026</h3>
+        <p style="margin:0 0 8px;font-size:14px;line-height:1.7;max-width:62ch;color:rgba(23,23,20,.85)">Three new prints from the re-development work will be shown alongside four other photographers. Venue and dates to be announced.</p>
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)">Upcoming</span>
+      </div>
+    </li>
+    <li style="display:grid;grid-template-columns:9ch 1fr;gap:8px 26px;border-top:1px solid rgba(23,23,20,.3);padding:22px 0">
+      <span style="font-size:13px;color:rgba(23,23,20,.55);letter-spacing:.06em">2026</span>
+      <div>
+        <h3 style="margin:0 0 6px;font-family:'EB Garamond',serif;font-weight:400;font-size:clamp(22px,2vw,30px);line-height:1.15">Analog Photography Festival, Pittsburgh</h3>
+        <p style="margin:0 0 8px;font-size:14px;line-height:1.7;max-width:62ch;color:rgba(23,23,20,.85)">Presented work as part of the festival programme, and ran a short cameraless session for visitors. Exact programme name to confirm.</p>
+        <a href="#news" style="font-size:13px;letter-spacing:.04em;border-bottom:1px solid rgba(23,23,20,.4);padding-bottom:2px">Festival site ↗</a>
+      </div>
+    </li>
+    <li style="display:grid;grid-template-columns:9ch 1fr;gap:8px 26px;border-top:1px solid rgba(23,23,20,.3);padding:22px 0">
+      <span style="font-size:13px;color:rgba(23,23,20,.55);letter-spacing:.06em">2025</span>
+      <div>
+        <h3 style="margin:0 0 6px;font-family:'EB Garamond',serif;font-weight:400;font-size:clamp(22px,2vw,30px);line-height:1.15">The Halide Project publication</h3>
+        <p style="margin:0 0 8px;font-size:14px;line-height:1.7;max-width:62ch;color:rgba(23,23,20,.85)">Work included in the Halide Project book. Title, edition, and page details to confirm.</p>
+        <a href="#news" style="font-size:13px;letter-spacing:.04em;border-bottom:1px solid rgba(23,23,20,.4);padding-bottom:2px">Publication ↗</a>
+      </div>
+    </li>
+    <li style="display:grid;grid-template-columns:9ch 1fr;gap:8px 26px;border-top:1px solid rgba(23,23,20,.3);padding:22px 0">
+      <span style="font-size:13px;color:rgba(23,23,20,.55);letter-spacing:.06em">2025</span>
+      <div>
+        <h3 style="margin:0 0 6px;font-family:'EB Garamond',serif;font-weight:400;font-size:clamp(22px,2vw,30px);line-height:1.15">Artist talk, community darkroom</h3>
+        <p style="margin:0 0 8px;font-size:14px;line-height:1.7;max-width:62ch;color:rgba(23,23,20,.85)">An evening on re-development and other ways of interfering with a finished print.</p>
+      </div>
+    </li>
+    <li style="display:grid;grid-template-columns:9ch 1fr;gap:8px 26px;border-top:1px solid rgba(23,23,20,.3);padding:22px 0">
+      <span style="font-size:13px;color:rgba(23,23,20,.55);letter-spacing:.06em">2024</span>
+      <div>
+        <h3 style="margin:0 0 6px;font-family:'EB Garamond',serif;font-weight:400;font-size:clamp(22px,2vw,30px);line-height:1.15">Student exhibition, Advanced Holga</h3>
+        <p style="margin:0 0 8px;font-size:14px;line-height:1.7;max-width:62ch;color:rgba(23,23,20,.85)">A one-night hanging of prints from the summer class. Photographs from it appear in Student Work.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="contact" style="scroll-margin-top:20px;padding:0 4vw;border-top:1px solid rgba(23,23,20,.3);position:relative;z-index:1">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:36px 6vw;align-items:start;padding:min(9vh,92px) 0">
+    <div>
+      <h2 style="margin:0 0 24px;font-weight:400;font-size:clamp(40px,6vw,92px);line-height:.95;letter-spacing:-.015em">
+        <span data-secnum style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:.16em;vertical-align:super;color:rgba(23,23,20,.55)">06</span> Contact
+      </h2>
+      <a href="mailto:etherealaperturephoto@gmail.com" style="display:inline-block;font-size:clamp(22px,2.4vw,36px);line-height:1.2;font-style:italic;overflow-wrap:normal;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px">etherealaperturephoto<wbr />@gmail.com</a>
+      <p style="margin:26px 0 0;font-size:clamp(19px,1.5vw,24px);line-height:1.4;max-width:34ch;text-wrap:pretty">For classes, photographs, exhibitions, collaborations, or a conversation about process.</p>
+    </div>
+    <div style="font-family:'Courier Prime',monospace;font-size:13px;line-height:1.9;letter-spacing:.03em">
+      <div style="border-top:1px solid rgba(23,23,20,.3);padding-top:12px;color:rgba(23,23,20,.8)">
+        BASED IN PITTSBURGH, PA<br />TEACHING IN THE REGION<br />REPLIES USUALLY WITHIN A WEEK
+      </div>
+      <div style="margin-top:20px;display:flex;flex-direction:column;align-items:flex-start;gap:4px">
+        <a href="https://instagram.com/etherealaperturephoto" style="padding:8px 0;border-bottom:1px solid rgba(23,23,20,.35)">@ETHEREALAPERTUREPHOTO ↗</a>
+        <a href="https://instagram.com/caramiaphoto" style="padding:8px 0;border-bottom:1px solid rgba(23,23,20,.35)">@CARAMIAPHOTO ↗</a>
+        <a href="#news" style="padding:8px 0;border-bottom:1px solid rgba(23,23,20,.35)">THE HALIDE PROJECT ↗</a>
+      </div>
+      <p style="margin:24px 0 0;color:rgba(23,23,20,.6);max-width:36ch">Students: if you'd rather your name appear differently, or not at all, tell me and I'll change it.</p>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:20px 4vw 34px;border-top:1px solid rgba(23,23,20,.3);position:relative;z-index:1">
+  <div style="display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(23,23,20,.6)">
+    <span>ETHEREAL APERTURE PHOTOGRAPHY — CARA</span>
+    <span>PHOTOGRAPHS © THEIR MAKERS · PUBLISHED WITH PERMISSION</span>
+    <a href="#top">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+<sc-if value="{{ lb }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="Enlarged photograph" onClick="{{ backdrop }}" style="position:fixed;inset:0;z-index:60;background:rgba(20,19,16,.95);display:flex;flex-direction:column;padding:18px 3vw 22px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(238,234,221,.65)">
+      <span>Frame {{ lbIdx }}</span>
+      <button type="button" onClick="{{ close }}" aria-label="Close enlarged photograph" style="background:none;border:1px solid rgba(238,234,221,.4);color:#EEEADD;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:11px 14px;cursor:pointer">Close (esc)</button>
+    </div>
+    <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:16px 0">
+      <div style="position:relative;max-width:min(88vw,1500px);max-height:100%;aspect-ratio:3/2;width:min(88vw,1500px);background:rgba(238,234,221,.06)">
+        <image-slot id="{{ lbSlot }}" shape="rect" fit="contain" placeholder="{{ lbAlt }}"></image-slot>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;color:#EEEADD">
+      <p style="margin:0;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.02em;max-width:58ch">{{ lbCap }}</p>
+      <div style="display:flex;gap:8px">
+        <button type="button" onClick="{{ prev }}" style="background:none;border:1px solid rgba(238,234,221,.4);color:#EEEADD;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:11px 16px;cursor:pointer">← Prev</button>
+        <button type="button" onClick="{{ next }}" style="background:none;border:1px solid rgba(238,234,221,.4);color:#EEEADD;font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:11px 16px;cursor:pointer">Next →</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script data-dc-script type="text/plain" data-props='{"accent":{"editor":"color","default":"#C53B2F","tsType":"string","options":["#C53B2F","#8A5A2B","#2F4A5C","#171714"],"section":"Palette"},"paperTexture":{"editor":"boolean","default":true,"tsType":"boolean","section":"Materiality"},"frameNumbers":{"editor":"boolean","default":true,"tsType":"boolean","section":"Materiality"}}'>
+class Component extends DCLogic {
+  state = { lb: null };
+
+  componentDidMount() {
+    this.applyProps();
+    this._key = (e) => {
+      if (!this.state.lb) return;
+      if (e.key === 'Escape') { e.preventDefault(); this.close(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); this.step(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); this.step(-1); }
+    };
+    window.addEventListener('keydown', this._key);
+    const links = Array.from(document.querySelectorAll('[data-nav]'));
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        links.forEach(a => {
+          const on = a.dataset.nav === en.target.id;
+          a.style.color = on ? 'var(--accent)' : '';
+          a.style.textDecoration = on ? 'underline' : '';
+          a.style.textUnderlineOffset = '4px';
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(a => { const el = document.getElementById(a.dataset.nav); if (el) this._io.observe(el); });
+  }
+
+  componentDidUpdate() { this.applyProps(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this._key);
+    if (this._io) this._io.disconnect();
+  }
+
+  applyProps() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#C53B2F');
+    const grain = this.props.paperTexture ?? true;
+    document.querySelectorAll('[data-grain]').forEach(el => { el.style.display = grain ? '' : 'none'; });
+    const nums = this.props.frameNumbers ?? true;
+    document.querySelectorAll('[data-num]').forEach(el => { el.style.display = nums ? '' : 'none'; });
+  }
+
+  figures() { return Array.from(document.querySelectorAll('figure[data-slot]')); }
+
+  setFrom(el) {
+    if (!el) return;
+    const d = el.dataset;
+    this.setState({ lb: { slot: d.slot, cap: d.cap, alt: d.alt, idx: d.idx } });
+  }
+
+  open = (e) => { this.setFrom(e.currentTarget); };
+  keyOpen = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.setFrom(e.currentTarget); } };
+  close = () => { this.setState({ lb: null }); };
+  backdrop = (e) => { if (e.target === e.currentTarget) this.close(); };
+
+  step(n) {
+    const list = this.figures();
+    if (!list.length || !this.state.lb) return;
+    const i = list.findIndex(f => f.dataset.slot === this.state.lb.slot);
+    this.setFrom(list[(i + n + list.length) % list.length]);
+  }
+
+  prev = () => this.step(-1);
+  next = () => this.step(1);
+
+  renderVals() {
+    const lb = this.state.lb;
+    return {
+      lb: !!lb,
+      lbSlot: lb ? lb.slot : '',
+      lbCap: lb ? lb.cap : '',
+      lbAlt: lb ? lb.alt : '',
+      lbIdx: lb ? lb.idx : '',
+      open: this.open, keyOpen: this.keyOpen, close: this.close,
+      backdrop: this.backdrop, prev: this.prev, next: this.next
+    };
+  }
+}
+</script>
+</body>
+</html>

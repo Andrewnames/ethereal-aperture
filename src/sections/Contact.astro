@@ -1,0 +1,36 @@
+---
+import site from "../data/site.json";
+
+const [local, domain] = site.email.split("@");
+---
+
+<section id="contact" class="section">
+  <div class="contact-grid">
+    <div>
+      <h2 class="section-title">
+        <span class="secnum">06</span> Contact
+      </h2>
+      <a class="contact-email" href={`mailto:${site.email}`}>
+        {local}<wbr />@{domain}
+      </a>
+      <p class="contact-lead">
+        For classes, photographs, exhibitions, collaborations, or a conversation about process.
+      </p>
+    </div>
+    <div class="contact-side">
+      <div class="contact-base">
+        BASED IN PITTSBURGH, PA<br />
+        TEACHING IN THE REGION<br />
+        REPLIES USUALLY WITHIN A WEEK
+      </div>
+      <div class="contact-links">
+        <a href="https://instagram.com/etherealaperturephoto">@ETHEREALAPERTUREPHOTO ↗</a>
+        <a href="https://instagram.com/caramiaphoto">@CARAMIAPHOTO ↗</a>
+        <a href="#news">THE HALIDE PROJECT ↗</a>
+      </div>
+      <p class="contact-note">
+        Students: if you'd rather your name appear differently, or not at all, tell me and I'll change it.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import PhotoFigure from "../components/PhotoFigure.astro";
+import photos from "../data/student-work.json";
+---
+
+<section id="student-work" class="section">
+  <div class="section-head">
+    <h2 class="section-title">
+      <span class="secnum">01</span> Student work
+    </h2>
+    <p class="section-note">
+      A selection pulled from classes. Photographs published with permission. Click any frame to enlarge.
+    </p>
+  </div>
+
+  <div class="gallery gallery--students">
+    {photos.map((photo) => (
+      <PhotoFigure {...photo} span="3" showNumber={true} />
+    ))}
+  </div>
+</section>
