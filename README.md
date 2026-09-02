@@ -1,6 +1,6 @@
 # Ethereal Aperture
 
-Personal site for Cara (Ethereal Aperture, Pittsburgh): student work, current photographs, classes, news, and contact. Built from the design handoff in `design_handoff_ethereal_aperture/`.
+Personal site for Cara (Ethereal Aperture, Cleveland, Ohio): student work, current photographs, classes, news, and contact. Built from the design handoff in `design_handoff_ethereal_aperture/`.
 
 ## Stack
 
