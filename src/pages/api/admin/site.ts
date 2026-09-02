@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { getSite, saveSite } from "../../../lib/content";
+import { publicUrl } from "../../../lib/http";
 
 export const POST: APIRoute = async ({ request }) => {
   const form = await request.formData();
@@ -36,5 +37,5 @@ export const POST: APIRoute = async ({ request }) => {
     },
   });
 
-  return Response.redirect(new URL("/admin?saved=1", request.url), 303);
+  return Response.redirect(publicUrl("/admin?saved=1", request), 303);
 };

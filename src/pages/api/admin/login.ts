@@ -4,13 +4,14 @@ import {
   passwordsMatch,
   sessionCookie,
 } from "../../../lib/auth";
+import { publicUrl } from "../../../lib/http";
 
 export const POST: APIRoute = async ({ request }) => {
   const form = await request.formData();
   const password = String(form.get("password") ?? "");
 
   if (!passwordsMatch(password)) {
-    return Response.redirect(new URL("/admin/login?error=1", request.url), 303);
+    return Response.redirect(publicUrl("/admin/login?error=1", request), 303);
   }
 
   return new Response(null, {
