@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request }) => {
       description: String(form.get("description") ?? ""),
       status: String(form.get("status") ?? "coming-soon") as ClassStatus,
       ctaLabel: String(form.get("ctaLabel") ?? ""),
-      ctaHref: String(form.get("ctaHref") ?? ""),
+      ctaHref: "",
       dates: String(form.get("dates") ?? "") || undefined,
       time: String(form.get("time") ?? "") || undefined,
       where: String(form.get("where") ?? "") || undefined,

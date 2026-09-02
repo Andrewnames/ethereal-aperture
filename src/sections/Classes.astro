@@ -57,11 +57,7 @@ const meta = (cls: UpcomingClass) =>
         <span class:list={["status", cls.status === "registration-open" && "status--open"]}>
           {statusCopy[cls.status]}
         </span>
-        {/^https?:\/\//.test(cls.ctaHref) ? (
-          <a href={cls.ctaHref}>{cls.ctaLabel}</a>
-        ) : (
-          <a href="#contact" data-write data-about={cls.title}>{cls.ctaLabel}</a>
-        )}
+        <a href="#contact" data-write data-about={cls.title}>{cls.ctaLabel}</a>
       </div>
     </article>
   ))}

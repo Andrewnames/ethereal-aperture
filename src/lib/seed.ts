@@ -117,6 +117,10 @@ async function relocateLiveCopy() {
     }
   }
 
+  await query(
+    `UPDATE classes SET cta_href = '' WHERE kind = 'upcoming' AND cta_href <> ''`,
+  );
+
   const photos = await query<{ id: string; caption: string }>(
     "SELECT id, caption FROM photos",
   );
