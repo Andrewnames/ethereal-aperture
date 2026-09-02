@@ -45,21 +45,21 @@ const interests = [...new Set([...upcoming.map((cls) => cls.title), ...general])
       />
       <input type="hidden" name="source" value="site" data-write-source />
 
-      <div data-write-fields>
+      <div class="write-fields" data-write-fields>
         <label>
-          Name
+          <span>Name</span>
           <input type="text" name="name" required maxlength="120" autocomplete="name" />
         </label>
         <label>
-          Email
+          <span>Email</span>
           <input type="email" name="email" required maxlength="200" autocomplete="email" />
         </label>
         <label>
-          Phone <span class="optional">optional</span>
+          <span>Phone <span class="optional">optional</span></span>
           <input type="tel" name="phone" maxlength="40" autocomplete="tel" />
         </label>
         <label>
-          About
+          <span>About</span>
           <select name="interest" data-write-interest>
             <option value="">Choose one</option>
             {interests.map((item) => (
@@ -68,7 +68,7 @@ const interests = [...new Set([...upcoming.map((cls) => cls.title), ...general])
           </select>
         </label>
         <label>
-          Message
+          <span>Message</span>
           <textarea name="message" required maxlength="4000" rows="5"></textarea>
         </label>
         <div class="write-actions">

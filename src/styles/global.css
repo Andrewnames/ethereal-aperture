@@ -675,12 +675,12 @@ a:hover {
 }
 
 .write-panel {
-  width: min(440px, 100%);
-  max-height: min(92vh, 760px);
+  width: min(420px, 100%);
+  max-height: min(92vh, 780px);
   overflow: auto;
   background: var(--paper);
   color: var(--ink);
-  padding: 22px 22px 26px;
+  padding: 28px 28px 32px;
 }
 
 .write-bar {
@@ -688,9 +688,9 @@ a:hover {
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
   border-bottom: 1px solid var(--rule);
-  padding-bottom: 12px;
+  padding-bottom: 14px;
 }
 
 .write-bar h2 {
@@ -731,14 +731,18 @@ a:hover {
 }
 
 .write-form {
+  display: block;
+}
+
+.write-fields {
   display: grid;
-  gap: 16px;
+  gap: 22px;
 }
 
 .write-form label {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -748,22 +752,45 @@ a:hover {
 
 .write-form .optional {
   letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: rgba(23, 23, 20, 0.4);
 }
 
 .write-form input,
 .write-form select,
 .write-form textarea {
+  appearance: none;
   font-family: var(--serif);
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--ink);
   background: var(--paper);
   border: 0;
   border-bottom: 1px solid var(--rule);
   border-radius: 0;
-  padding: 7px 0;
+  padding: 4px 0 10px;
   width: 100%;
+}
+
+.write-form select {
+  padding-right: 22px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position:
+    calc(100% - 8px) 12px,
+    calc(100% - 3px) 12px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.write-form input:focus,
+.write-form select:focus,
+.write-form textarea:focus,
+.write-form input:focus-visible,
+.write-form select:focus-visible,
+.write-form textarea:focus-visible {
+  outline: none;
+  border-bottom-color: var(--ink);
 }
 
 .write-form input:-webkit-autofill,
@@ -775,12 +802,13 @@ a:hover {
 }
 
 .write-form textarea {
-  min-height: 110px;
+  min-height: 120px;
   resize: vertical;
+  padding-top: 8px;
 }
 
 .write-actions {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .write-form button[type="submit"] {
@@ -797,9 +825,12 @@ a:hover {
 }
 
 .write-form button[type="submit"]:hover,
-.write-form button[type="submit"]:disabled {
+.write-form button[type="submit"]:disabled,
+.write-form button[type="submit"]:focus-visible,
+.write-close:focus-visible {
   color: var(--accent);
   border-color: var(--accent);
+  outline: none;
 }
 
 .hp {
