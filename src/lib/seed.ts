@@ -23,11 +23,6 @@ const PLACE_FIXES: [string, string][] = [
   ["Braddock, studio annex", "Ohio City, studio annex"],
   ["Community darkroom, Wilkinsburg", "Community darkroom, Collinwood"],
   ["Millvale ·", "Tremont ·"],
-  [
-    "Analog Photography Festival, Pittsburgh",
-    "Analog Photography Festival, Cleveland",
-  ],
-  ["festival in Pittsburgh", "festival in Cleveland"],
   ["in and around Pittsburgh", "in and around Cleveland"],
   ["PITTSBURGH, PA", "CLEVELAND, OH"],
   ["Pittsburgh, PA", "Cleveland, OH"],
@@ -39,10 +34,33 @@ const PLACE_FIXES: [string, string][] = [
 ];
 
 function applyPlaceFixes(value: string) {
+  const shielded = value
+    .replaceAll(
+      "Analog Photography Festival, Pittsburgh",
+      "\0FESTIVAL_HEAD\0",
+    )
+    .replaceAll(
+      "Analog Photography Festival, Cleveland",
+      "\0FESTIVAL_HEAD\0",
+    )
+    .replaceAll(
+      "analog photography festival in Pittsburgh",
+      "\0FESTIVAL_ABOUT\0",
+    )
+    .replaceAll(
+      "analog photography festival in Cleveland",
+      "\0FESTIVAL_ABOUT\0",
+    );
+
   return PLACE_FIXES.reduce(
     (text, [from, to]) => text.replaceAll(from, to),
-    value,
-  );
+    shielded,
+  )
+    .replaceAll("\0FESTIVAL_HEAD\0", "Analog Photography Festival, Pittsburgh")
+    .replaceAll(
+      "\0FESTIVAL_ABOUT\0",
+      "analog photography festival in Pittsburgh",
+    );
 }
 
 function relocateValue(value: unknown): unknown {
