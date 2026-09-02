@@ -43,4 +43,6 @@ The About portrait is in `src/data/site.json` (`about.portraitSrc`).
 
 `src/data/site.json` — title, description, email, About paragraphs, artist statement. Set `about.draft` to `false` when the About copy is final.
 
+Set `searchable` to `true` when the site should appear in search engines. While it is `false`, pages send `noindex` and `robots.txt` blocks crawlers.
+
 After editing, run `npm run build` locally or push; Render rebuilds on each push to the connected branch.

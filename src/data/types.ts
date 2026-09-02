@@ -47,6 +47,7 @@ export type Site = {
   title: string;
   description: string;
   wordmark: string;
+  searchable: boolean;
   email: string;
   about: {
     pull: string;
