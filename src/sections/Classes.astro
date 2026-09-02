@@ -26,10 +26,6 @@ const meta = (cls: UpcomingClass) =>
     ["COST", cls.cost],
   ].filter(([, value]) => Boolean(value));
 
-const classHref = (cls: UpcomingClass) => {
-  if (cls.ctaHref && !cls.ctaHref.startsWith("mailto:")) return cls.ctaHref;
-  return `/?about=${encodeURIComponent(cls.title)}#contact`;
-};
 ---
 
 <section id="classes" class="section">
@@ -38,7 +34,7 @@ const classHref = (cls: UpcomingClass) => {
       <span class="secnum">04</span> Classes
     </h2>
     <p class="section-note">
-      Small groups. No experience assumed unless the listing says so. Use the form if a class is full — I keep a list.
+      Small groups. No experience assumed unless the listing says so. Write if a class is full — I keep a list.
     </p>
   </div>
 
@@ -61,7 +57,11 @@ const classHref = (cls: UpcomingClass) => {
         <span class:list={["status", cls.status === "registration-open" && "status--open"]}>
           {statusCopy[cls.status]}
         </span>
-        <a href={classHref(cls)}>{cls.ctaLabel}</a>
+        {/^https?:\/\//.test(cls.ctaHref) ? (
+          <a href={cls.ctaHref}>{cls.ctaLabel}</a>
+        ) : (
+          <a href="#contact" data-write data-about={cls.title}>{cls.ctaLabel}</a>
+        )}
       </div>
     </article>
   ))}

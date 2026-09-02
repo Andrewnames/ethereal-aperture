@@ -1,0 +1,80 @@
+---
+import type { UpcomingClass } from "../lib/types";
+
+interface Props {
+  upcoming: UpcomingClass[];
+}
+
+const { upcoming } = Astro.props;
+const general = [
+  "A class",
+  "Photographs",
+  "Exhibition",
+  "Collaboration",
+  "Process",
+  "Something else",
+];
+const interests = [...new Set([...upcoming.map((cls) => cls.title), ...general])];
+---
+
+<div
+  id="write-dialog"
+  class="write"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="write-title"
+>
+  <div class="write-panel">
+    <div class="write-bar">
+      <h2 id="write-title">Write</h2>
+      <button type="button" class="write-close" data-write-close aria-label="Close write form">
+        Close (esc)
+      </button>
+    </div>
+
+    <p class="write-flash" data-write-flash hidden></p>
+
+    <form class="write-form" method="post" action="/api/contact" data-write-form>
+      <input
+        class="hp"
+        type="text"
+        name="website"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+      />
+      <input type="hidden" name="source" value="site" data-write-source />
+
+      <div data-write-fields>
+        <label>
+          Name
+          <input type="text" name="name" required maxlength="120" autocomplete="name" />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required maxlength="200" autocomplete="email" />
+        </label>
+        <label>
+          Phone <span class="optional">optional</span>
+          <input type="tel" name="phone" maxlength="40" autocomplete="tel" />
+        </label>
+        <label>
+          About
+          <select name="interest" data-write-interest>
+            <option value="">Choose one</option>
+            {interests.map((item) => (
+              <option value={item}>{item}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Message
+          <textarea name="message" required maxlength="4000" rows="5"></textarea>
+        </label>
+        <div class="write-actions">
+          <button type="submit">Send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

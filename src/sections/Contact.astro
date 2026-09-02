@@ -1,33 +1,12 @@
 ---
-import type { SiteSettings, UpcomingClass } from "../lib/types";
+import type { SiteSettings } from "../lib/types";
 
 interface Props {
   site: SiteSettings;
-  upcoming: UpcomingClass[];
-  sent?: boolean;
-  error?: boolean;
-  about?: string;
 }
 
-const { site, upcoming, sent = false, error = false, about = "" } = Astro.props;
+const { site } = Astro.props;
 const [local, domain] = site.email.split("@");
-
-const general = [
-  "A class",
-  "Photographs",
-  "Exhibition",
-  "Collaboration",
-  "Process",
-  "Something else",
-];
-const classOptions = upcoming.map((cls) => cls.title);
-const interests = [...new Set([...classOptions, ...general])];
-const selected =
-  about && interests.includes(about)
-    ? about
-    : about
-      ? about
-      : "";
 ---
 
 <section id="contact" class="section">
@@ -40,6 +19,7 @@ const selected =
       <p class="contact-lead">
         For classes, photographs, exhibitions, collaborations, or a conversation about process.
       </p>
+      <a class="contact-write" href="#contact" data-write>Write →</a>
     </div>
     <div class="contact-side">
       <div class="contact-base">
@@ -57,61 +37,4 @@ const selected =
       </p>
     </div>
   </div>
-
-  {sent && (
-    <p class="contact-flash" role="status">
-      Received. I will write back from this address.
-    </p>
-  )}
-  {error && (
-    <p class="contact-flash contact-flash--error" role="alert">
-      Something was missing — name, a real email, and a note are required.
-    </p>
-  )}
-
-  <form class="contact-form" method="post" action="/api/contact">
-    <input
-      class="hp"
-      type="text"
-      name="website"
-      tabindex="-1"
-      autocomplete="off"
-      aria-hidden="true"
-    />
-    <input type="hidden" name="source" value={about ? "class" : "site"} />
-
-    <div class="contact-fields">
-      <label>
-        Name
-        <input type="text" name="name" required maxlength="120" autocomplete="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" required maxlength="200" autocomplete="email" />
-      </label>
-      <label>
-        Phone <span class="optional">optional</span>
-        <input type="tel" name="phone" maxlength="40" autocomplete="tel" />
-      </label>
-      <label>
-        About
-        <select name="interest">
-          <option value="" disabled selected={!selected}>Choose one</option>
-          {about && !interests.includes(about) && (
-            <option value={about} selected>{about}</option>
-          )}
-          {interests.map((item) => (
-            <option value={item} selected={item === selected}>{item}</option>
-          ))}
-        </select>
-      </label>
-    </div>
-    <label>
-      Message
-      <textarea name="message" required maxlength="4000" rows="6"></textarea>
-    </label>
-    <div class="contact-actions">
-      <button type="submit">Send</button>
-    </div>
-  </form>
 </section>

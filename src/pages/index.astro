@@ -8,14 +8,12 @@ import About from "../sections/About.astro";
 import Classes from "../sections/Classes.astro";
 import News from "../sections/News.astro";
 import Contact from "../sections/Contact.astro";
+import WriteDialog from "../components/WriteDialog.astro";
 import Footer from "../sections/Footer.astro";
 import { getSiteContent } from "../lib/content";
 
 const { site, studentWork, myWork, portrait, news, upcoming, past } =
   await getSiteContent();
-const sent = Astro.url.searchParams.get("sent") === "1";
-const error = Astro.url.searchParams.get("error") === "1";
-const about = Astro.url.searchParams.get("about") ?? "";
 ---
 
 <Base title={site.title} description={site.description} searchable={site.searchable}>
@@ -25,13 +23,8 @@ const about = Astro.url.searchParams.get("about") ?? "";
   <About site={site} portrait={portrait} />
   <Classes upcoming={upcoming} past={past} />
   <News items={news} />
-  <Contact
-    site={site}
-    upcoming={upcoming}
-    sent={sent}
-    error={error}
-    about={about}
-  />
+  <Contact site={site} />
   <Footer />
   <Lightbox />
+  <WriteDialog upcoming={upcoming} />
 </Base>

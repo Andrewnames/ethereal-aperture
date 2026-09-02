@@ -26,18 +26,32 @@ function allow(key: string) {
   return true;
 }
 
+function json(ok: boolean, status = 200) {
+  return new Response(JSON.stringify({ ok }), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
 export const POST: APIRoute = async ({ request }) => {
   const form = await request.formData();
   const parsed = parseInquiry(form);
+  const wantsJson = request.headers.get("accept")?.includes("application/json");
 
   if ("spam" in parsed) {
-    return Response.redirect(publicUrl("/?sent=1#contact", request), 303);
+    return wantsJson
+      ? json(true)
+      : Response.redirect(publicUrl("/#contact", request), 303);
   }
 
   if ("error" in parsed || !allow(clientKey(request))) {
-    return Response.redirect(publicUrl("/?error=1#contact", request), 303);
+    return wantsJson
+      ? json(false, 400)
+      : Response.redirect(publicUrl("/#contact", request), 303);
   }
 
   await createInquiry(parsed);
-  return Response.redirect(publicUrl("/?sent=1#contact", request), 303);
+  return wantsJson
+    ? json(true)
+    : Response.redirect(publicUrl("/#contact", request), 303);
 };
