@@ -1,6 +1,12 @@
 ---
-import data from "../data/classes.json";
-import type { ClassStatus } from "../data/types";
+import type { ClassStatus, PastClass, UpcomingClass } from "../lib/types";
+
+interface Props {
+  upcoming: UpcomingClass[];
+  past: PastClass[];
+}
+
+const { upcoming, past } = Astro.props;
 
 const statusCopy: Record<ClassStatus, string> = {
   "registration-open": "● Registration open",
@@ -10,7 +16,7 @@ const statusCopy: Record<ClassStatus, string> = {
   completed: "Completed",
 };
 
-const meta = (cls: (typeof data.upcoming)[number]) =>
+const meta = (cls: UpcomingClass) =>
   [
     ["DATES", cls.dates],
     ["TIME", cls.time],
@@ -32,7 +38,7 @@ const meta = (cls: (typeof data.upcoming)[number]) =>
   </div>
 
   <h3 class="subhead">Upcoming</h3>
-  {data.upcoming.map((cls) => (
+  {upcoming.map((cls) => (
     <article class="class-entry">
       <div class="class-copy">
         <h4>{cls.title}</h4>
@@ -48,7 +54,7 @@ const meta = (cls: (typeof data.upcoming)[number]) =>
       </dl>
       <div class="class-cta">
         <span class:list={["status", cls.status === "registration-open" && "status--open"]}>
-          {statusCopy[cls.status as ClassStatus]}
+          {statusCopy[cls.status]}
         </span>
         <a href={cls.ctaHref}>{cls.ctaLabel}</a>
       </div>
@@ -57,7 +63,7 @@ const meta = (cls: (typeof data.upcoming)[number]) =>
 
   <h3 class="subhead subhead--past">Past</h3>
   <ul class="past-list">
-    {data.past.map((cls) => (
+    {past.map((cls) => (
       <li class="past-row">
         <span class="past-term">{cls.term}</span>
         <span>{cls.title}</span>

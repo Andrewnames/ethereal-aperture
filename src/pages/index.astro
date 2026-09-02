@@ -9,16 +9,20 @@ import Classes from "../sections/Classes.astro";
 import News from "../sections/News.astro";
 import Contact from "../sections/Contact.astro";
 import Footer from "../sections/Footer.astro";
+import { getSiteContent } from "../lib/content";
+
+const { site, studentWork, myWork, portrait, news, upcoming, past } =
+  await getSiteContent();
 ---
 
-<Base>
-  <Header />
-  <StudentWork />
-  <MyWork />
-  <About />
-  <Classes />
-  <News />
-  <Contact />
+<Base title={site.title} description={site.description} searchable={site.searchable}>
+  <Header wordmark={site.wordmark} />
+  <StudentWork photos={studentWork} />
+  <MyWork photos={myWork} site={site} />
+  <About site={site} portrait={portrait} />
+  <Classes upcoming={upcoming} past={past} />
+  <News items={news} />
+  <Contact site={site} />
   <Footer />
   <Lightbox />
 </Base>

@@ -1,0 +1,37 @@
+---
+import Base from "./Base.astro";
+import "../styles/admin.css";
+import { getSite } from "../lib/content";
+
+interface Props {
+  title: string;
+  current: "site" | "photos" | "news" | "classes";
+}
+
+const site = await getSite();
+const { title, current } = Astro.props;
+const links = [
+  { href: "/admin", id: "site", label: "Site" },
+  { href: "/admin/photos", id: "photos", label: "Photographs" },
+  { href: "/admin/news", id: "news", label: "News" },
+  { href: "/admin/classes", id: "classes", label: "Classes" },
+];
+---
+
+<Base title={`${title} — Admin`} description="Private editor for Ethereal Aperture.">
+  <div class="admin">
+    <div class="admin-bar">
+      <a class="wordmark" href="/">{site.wordmark}</a>
+      <nav class="admin-nav" aria-label="Admin">
+        {links.map((link) => (
+          <a href={link.href} class:list={{ "is-current": current === link.id }}>{link.label}</a>
+        ))}
+        <a href="/" target="_blank" rel="noreferrer">View site ↗</a>
+        <form method="post" action="/api/admin/logout">
+          <button type="submit">Log out</button>
+        </form>
+      </nav>
+    </div>
+    <slot />
+  </div>
+</Base>

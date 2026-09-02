@@ -1,8 +1,13 @@
 ---
 import PhotoFigure from "../components/PhotoFigure.astro";
-import site from "../data/site.json";
-import photos from "../data/my-work.json";
+import type { Photo, SiteSettings } from "../lib/types";
 
+interface Props {
+  photos: Photo[];
+  site: SiteSettings;
+}
+
+const { photos, site } = Astro.props;
 const before = photos.slice(0, 3);
 const after = photos.slice(3);
 ---
@@ -18,7 +23,14 @@ const after = photos.slice(3);
 
   <div class="gallery gallery--work">
     {before.map((photo) => (
-      <PhotoFigure {...photo} span="4" />
+      <PhotoFigure
+        id={photo.id}
+        caption={photo.caption}
+        alt={photo.alt}
+        src={photo.src}
+        indexLabel={photo.indexLabel}
+        span="4"
+      />
     ))}
     <div class="span-4">
       <p class="statement">{site.artistStatement.pull}</p>
@@ -26,7 +38,14 @@ const after = photos.slice(3);
       <p class="statement-meta">{site.artistStatement.rotation}</p>
     </div>
     {after.map((photo) => (
-      <PhotoFigure {...photo} span="4" />
+      <PhotoFigure
+        id={photo.id}
+        caption={photo.caption}
+        alt={photo.alt}
+        src={photo.src}
+        indexLabel={photo.indexLabel}
+        span="4"
+      />
     ))}
   </div>
 </section>

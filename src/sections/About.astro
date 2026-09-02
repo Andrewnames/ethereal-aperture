@@ -1,7 +1,14 @@
 ---
-import site from "../data/site.json";
+import type { Photo, SiteSettings } from "../lib/types";
 
+interface Props {
+  site: SiteSettings;
+  portrait: Photo | null;
+}
+
+const { site, portrait } = Astro.props;
 const { about } = site;
+const portraitSrc = portrait?.src ?? null;
 ---
 
 <section id="about" class="section">
@@ -17,10 +24,10 @@ const { about } = site;
   <div class="gallery gallery--about">
     <div class="span-4">
       <div class="photo-frame">
-        {about.portraitSrc && (
+        {portraitSrc && (
           <img
-            src={about.portraitSrc}
-            alt={about.portraitAlt}
+            src={portraitSrc}
+            alt={about.portraitAlt || portrait?.alt || ""}
             width="1500"
             height="1000"
             loading="lazy"

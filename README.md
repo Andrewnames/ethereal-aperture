@@ -4,23 +4,16 @@ Personal site for Cara (Ethereal Aperture, Pittsburgh): student work, current ph
 
 ## Stack
 
-Astro, static HTML. Content is JSON in `src/data/` so classes, photographs, and news can change without touching the design.
+Astro (Node) on Render, with Render Postgres for copy and photographs. Sign in at `/admin` to edit.
 
 ## Local
+
+Copy `.env.example` to `.env` and point `DATABASE_URL` at Postgres.
 
 ```bash
 npm install
 npm run dev
 ```
-
-```bash
-npm run build
-npm run preview
-```
-
-## Content
-
-See [CONTENT.md](CONTENT.md). Photographs are still being collected; frames render empty until `src` is set. Invented student names from the prototype are not used.
 
 ## Deploy (Render)
 

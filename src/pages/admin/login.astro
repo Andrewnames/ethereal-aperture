@@ -1,0 +1,25 @@
+---
+import Base from "../../layouts/Base.astro";
+import "../../styles/admin.css";
+
+const failed = Astro.url.searchParams.get("error") === "1";
+---
+
+<Base title="Admin — Ethereal Aperture">
+  <div class="admin">
+    <div class="login-box">
+      <h1>Editor</h1>
+      <p class="lede">Private. For updating photographs, classes, news, and links.</p>
+      {failed && <p class="flash">That password was not right.</p>}
+      <form class="fields" method="post" action="/api/admin/login">
+        <label>
+          Password
+          <input type="password" name="password" required autofocus />
+        </label>
+        <div class="row-actions">
+          <button type="submit">Enter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</Base>

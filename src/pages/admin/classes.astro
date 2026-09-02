@@ -1,0 +1,113 @@
+---
+import Admin from "../../layouts/Admin.astro";
+import { listPast, listUpcoming } from "../../lib/content";
+
+const upcoming = await listUpcoming();
+const past = await listPast();
+const saved = Astro.url.searchParams.get("saved") === "1";
+const statuses = [
+  ["registration-open", "Registration open"],
+  ["waitlist", "Waitlist"],
+  ["coming-soon", "Coming soon"],
+  ["full", "Full"],
+  ["completed", "Completed"],
+];
+---
+
+<Admin title="Classes" current="classes">
+  <h1>Classes</h1>
+  <p class="lede">Upcoming listings appear with registration status. Past classes stay as the ruled list.</p>
+  {saved && <p class="flash">Saved.</p>}
+
+  <h2>Upcoming</h2>
+  {upcoming.map((cls) => (
+    <form class="admin-card fields" method="post" action="/api/admin/classes">
+      <input type="hidden" name="id" value={cls.id} />
+      <input type="hidden" name="kind" value="upcoming" />
+      <label>Title<input name="title" value={cls.title} /></label>
+      <label>Description<textarea name="description">{cls.description}</textarea></label>
+      <div class="two">
+        <label>
+          Status
+          <select name="status">
+            {statuses.map(([value, label]) => (
+              <option value={value} selected={cls.status === value}>{label}</option>
+            ))}
+          </select>
+        </label>
+        <label>Dates<input name="dates" value={cls.dates ?? ""} /></label>
+        <label>Time<input name="time" value={cls.time ?? ""} /></label>
+        <label>Where<input name="where" value={cls.where ?? ""} /></label>
+        <label>Level<input name="level" value={cls.level ?? ""} /></label>
+        <label>Bring<input name="bring" value={cls.bring ?? ""} /></label>
+        <label>Cost<input name="cost" value={cls.cost ?? ""} /></label>
+        <label>Button label<input name="ctaLabel" value={cls.ctaLabel} /></label>
+        <label>Button URL<input name="ctaHref" value={cls.ctaHref} /></label>
+      </div>
+      <div class="row-actions">
+        <button type="submit" name="action" value="save">Save</button>
+        <button class="danger" type="submit" name="action" value="delete">Delete</button>
+      </div>
+    </form>
+  ))}
+
+  <form class="admin-card fields" method="post" action="/api/admin/classes">
+    <h2>Add upcoming class</h2>
+    <input type="hidden" name="kind" value="upcoming" />
+    <label>Title<input name="title" required /></label>
+    <label>Description<textarea name="description"></textarea></label>
+    <div class="two">
+      <label>
+        Status
+        <select name="status">
+          {statuses.map(([value, label]) => (
+            <option value={value}>{label}</option>
+          ))}
+        </select>
+      </label>
+      <label>Dates<input name="dates" /></label>
+      <label>Time<input name="time" /></label>
+      <label>Where<input name="where" /></label>
+      <label>Level<input name="level" /></label>
+      <label>Bring<input name="bring" /></label>
+      <label>Cost<input name="cost" /></label>
+      <label>Button label<input name="ctaLabel" value="Register →" /></label>
+      <label>Button URL<input name="ctaHref" /></label>
+    </div>
+    <div class="row-actions">
+      <button type="submit" name="action" value="save">Add class</button>
+    </div>
+  </form>
+
+  <h2>Past</h2>
+  {past.map((cls) => (
+    <form class="admin-card fields" method="post" action="/api/admin/classes">
+      <input type="hidden" name="id" value={cls.id} />
+      <input type="hidden" name="kind" value="past" />
+      <div class="two">
+        <label>Term<input name="term" value={cls.term} /></label>
+        <label>Title<input name="title" value={cls.title} /></label>
+      </div>
+      <label>Note<input name="note" value={cls.note} /></label>
+      <label>Photographs link<input name="photosHref" value={cls.photosHref} /></label>
+      <div class="row-actions">
+        <button type="submit" name="action" value="save">Save</button>
+        <button class="danger" type="submit" name="action" value="delete">Delete</button>
+      </div>
+    </form>
+  ))}
+
+  <form class="admin-card fields" method="post" action="/api/admin/classes">
+    <h2>Add past class</h2>
+    <input type="hidden" name="kind" value="past" />
+    <div class="two">
+      <label>Term<input name="term" /></label>
+      <label>Title<input name="title" required /></label>
+    </div>
+    <label>Note<input name="note" /></label>
+    <label>Photographs link<input name="photosHref" value="#student-work" /></label>
+    <div class="row-actions">
+      <button type="submit" name="action" value="save">Add past class</button>
+    </div>
+  </form>
+</Admin>

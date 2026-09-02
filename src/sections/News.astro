@@ -1,5 +1,11 @@
 ---
-import items from "../data/news.json";
+import type { NewsItem } from "../lib/types";
+
+interface Props {
+  items: NewsItem[];
+}
+
+const { items } = Astro.props;
 ---
 
 <section id="news" class="section">

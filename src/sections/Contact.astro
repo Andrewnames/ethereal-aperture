@@ -1,6 +1,11 @@
 ---
-import site from "../data/site.json";
+import type { SiteSettings } from "../lib/types";
 
+interface Props {
+  site: SiteSettings;
+}
+
+const { site } = Astro.props;
 const [local, domain] = site.email.split("@");
 ---
 
@@ -24,9 +29,9 @@ const [local, domain] = site.email.split("@");
         REPLIES USUALLY WITHIN A WEEK
       </div>
       <div class="contact-links">
-        <a href="https://instagram.com/etherealaperturephoto">@ETHEREALAPERTUREPHOTO ↗</a>
-        <a href="https://instagram.com/caramiaphoto">@CARAMIAPHOTO ↗</a>
-        <a href="#news">THE HALIDE PROJECT ↗</a>
+        <a href={site.links.instagramEa}>@ETHEREALAPERTUREPHOTO ↗</a>
+        <a href={site.links.instagramCara}>@CARAMIAPHOTO ↗</a>
+        <a href={site.links.halideUrl}>{site.links.halideLabel}</a>
       </div>
       <p class="contact-note">
         Students: if you'd rather your name appear differently, or not at all, tell me and I'll change it.

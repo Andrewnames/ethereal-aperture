@@ -1,14 +1,17 @@
 ---
 import "../styles/global.css";
-import site from "../data/site.json";
 
 interface Props {
   title?: string;
   description?: string;
+  searchable?: boolean;
 }
 
-const title = Astro.props.title ?? site.title;
-const description = Astro.props.description ?? site.description;
+const title = Astro.props.title ?? "Ethereal Aperture — Cara, experimental and analog photography";
+const description =
+  Astro.props.description ??
+  "Student work, classes, current experiments, exhibitions, and notes from Cara's life around analog photography.";
+const searchable = Astro.props.searchable ?? false;
 ---
 
 <!doctype html>
@@ -18,7 +21,7 @@ const description = Astro.props.description ?? site.description;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {!site.searchable && (
+    {!searchable && (
       <meta name="robots" content="noindex, nofollow" />
     )}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

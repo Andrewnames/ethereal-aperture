@@ -1,6 +1,12 @@
 ---
 import PhotoFigure from "../components/PhotoFigure.astro";
-import photos from "../data/student-work.json";
+import type { Photo } from "../lib/types";
+
+interface Props {
+  photos: Photo[];
+}
+
+const { photos } = Astro.props;
 ---
 
 <section id="student-work" class="section">
@@ -15,7 +21,15 @@ import photos from "../data/student-work.json";
 
   <div class="gallery gallery--students">
     {photos.map((photo) => (
-      <PhotoFigure {...photo} span="3" showNumber={true} />
+      <PhotoFigure
+        id={photo.id}
+        caption={photo.caption}
+        alt={photo.alt}
+        src={photo.src}
+        indexLabel={photo.indexLabel}
+        span="3"
+        showNumber={true}
+      />
     ))}
   </div>
 </section>

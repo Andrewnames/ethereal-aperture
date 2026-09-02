@@ -1,0 +1,62 @@
+---
+import Admin from "../../layouts/Admin.astro";
+import { getSite } from "../../lib/content";
+
+const site = await getSite();
+const saved = Astro.url.searchParams.get("saved") === "1";
+---
+
+<Admin title="Site" current="site">
+  <h1>Site</h1>
+  <p class="lede">Links, contact, About copy, and whether search engines may list the site.</p>
+  {saved && <p class="flash">Saved.</p>}
+
+  <form class="fields" method="post" action="/api/admin/site">
+    <div class="admin-card">
+      <h2>Contact and links</h2>
+      <div class="two">
+        <label>Email<input type="email" name="email" value={site.email} /></label>
+        <label>Wordmark<input name="wordmark" value={site.wordmark} /></label>
+        <label>Instagram, Ethereal Aperture<input name="instagramEa" value={site.links.instagramEa} /></label>
+        <label>Instagram, Cara<input name="instagramCara" value={site.links.instagramCara} /></label>
+        <label>Halide Project URL<input name="halideUrl" value={site.links.halideUrl} /></label>
+        <label>Halide Project label<input name="halideLabel" value={site.links.halideLabel} /></label>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <h2>Page</h2>
+      <label>Title<input name="title" value={site.title} /></label>
+      <label>Description<textarea name="description">{site.description}</textarea></label>
+      <label class="check">
+        <input type="checkbox" name="searchable" checked={site.searchable} />
+        Allow search engines to index the site
+      </label>
+    </div>
+
+    <div class="admin-card">
+      <h2>About</h2>
+      <label class="check">
+        <input type="checkbox" name="aboutDraft" checked={site.about.draft} />
+        Show “draft copy” note
+      </label>
+      <label>Pull line<input name="aboutPull" value={site.about.pull} /></label>
+      <label>Portrait caption<input name="portraitCaption" value={site.about.portraitCaption} /></label>
+      <label>
+        About paragraphs (blank line between each)
+        <textarea name="aboutParagraphs" rows="12">{site.about.paragraphs.join("\n\n")}</textarea>
+      </label>
+    </div>
+
+    <div class="admin-card">
+      <h2>Artist statement</h2>
+      <label>Pull<textarea name="artistPull">{site.artistStatement.pull}</textarea></label>
+      <label>Note<textarea name="artistNote">{site.artistStatement.note}</textarea></label>
+      <label>Rotation line<input name="artistRotation" value={site.artistStatement.rotation} /></label>
+    </div>
+
+    <div class="row-actions">
+      <button type="submit">Save site</button>
+    </div>
+  </form>
+</Admin>

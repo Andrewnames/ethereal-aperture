@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
-import site from "../data/site.json";
+import { getSite } from "../lib/content";
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
+  const site = await getSite();
   const body = site.searchable
     ? "User-agent: *\nAllow: /\n"
     : "User-agent: *\nDisallow: /\n";

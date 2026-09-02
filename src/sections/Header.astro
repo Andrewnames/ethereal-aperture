@@ -1,6 +1,11 @@
 ---
-import site from "../data/site.json";
 import Hero from "./Hero.astro";
+
+interface Props {
+  wordmark: string;
+}
+
+const { wordmark } = Astro.props;
 
 const links = [
   { id: "student-work", label: "Student Work" },
@@ -14,7 +19,7 @@ const links = [
 
 <header class="site-header">
   <div class="mast">
-    <a class="wordmark" href="#top">{site.wordmark}</a>
+    <a class="wordmark" href="#top">{wordmark}</a>
     <nav class="nav" aria-label="Primary">
       {links.map((link) => (
         <a data-nav={link.id} href={`#${link.id}`}>{link.label}</a>

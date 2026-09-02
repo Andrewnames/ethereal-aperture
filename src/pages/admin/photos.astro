@@ -1,0 +1,65 @@
+---
+import Admin from "../../layouts/Admin.astro";
+import { listPhotos } from "../../lib/content";
+
+const photos = await listPhotos();
+const saved = Astro.url.searchParams.get("saved") === "1";
+const error = Astro.url.searchParams.get("error");
+const groups = [
+  { id: "student", label: "Student work" },
+  { id: "mine", label: "My work" },
+  { id: "portrait", label: "About portrait" },
+] as const;
+---
+
+<Admin title="Photographs" current="photos">
+  <h1>Photographs</h1>
+  <p class="lede">Upload or replace a file, edit the caption, or remove a frame. Photographs are stored in the database. Keep them around 3:2 if you can; the frame letterboxes anything else.</p>
+  {saved && <p class="flash">Saved.</p>}
+  {error && <p class="flash">{error}</p>}
+
+  {groups.map((group) => (
+    <section class="admin-card">
+      <h2>{group.label}</h2>
+      {photos.filter((photo) => photo.gallery === group.id).map((photo) => (
+        <form class="photo-admin" method="post" action="/api/admin/photos" enctype="multipart/form-data" style="margin-bottom:28px">
+          <div class="thumb">
+            {photo.src && <img src={photo.src} alt={photo.alt} />}
+          </div>
+          <div class="inline-fields">
+            <input type="hidden" name="id" value={photo.id} />
+            <input type="hidden" name="gallery" value={photo.gallery} />
+            <label>Caption<input name="caption" value={photo.caption} /></label>
+            <label>Alt text<input name="alt" value={photo.alt} /></label>
+            <div class="two">
+              <label>Frame no.<input name="indexLabel" value={photo.indexLabel} /></label>
+              <label>Replace photograph<input type="file" name="file" accept="image/*" /></label>
+            </div>
+            <div class="row-actions">
+              <button type="submit" name="action" value="save">Save</button>
+              <button class="danger" type="submit" name="action" value="delete">
+                {photo.gallery === "portrait" ? "Clear photograph" : "Delete"}
+              </button>
+            </div>
+          </div>
+        </form>
+      ))}
+
+      {group.id !== "portrait" && (
+        <form class="fields" method="post" action="/api/admin/photos" enctype="multipart/form-data">
+          <input type="hidden" name="gallery" value={group.id} />
+          <p class="lede">Add a new frame to {group.label.toLowerCase()}.</p>
+          <div class="two">
+            <label>Caption<input name="caption" /></label>
+            <label>Alt text<input name="alt" /></label>
+            <label>Frame no.<input name="indexLabel" /></label>
+            <label>Photograph<input type="file" name="file" accept="image/*" /></label>
+          </div>
+          <div class="row-actions">
+            <button type="submit" name="action" value="save">Add photograph</button>
+          </div>
+        </form>
+      )}
+    </section>
+  ))}
+</Admin>

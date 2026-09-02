@@ -1,8 +1,8 @@
 # How to update the site
 
-All public copy lives in `src/data/`. Change those files and rebuild — you do not need to edit the layout.
+Sign in at `/admin` with the admin password. From there you can change links, About copy, news, class listings, and photographs. Changes go to the Postgres database and show on the public site immediately.
 
-Photographs go in `public/photos/`. Point a record at a file with a path that starts with `/photos/…`.
+The JSON files in `src/data/` are only the first-run seed. After the database has been created, edit in `/admin`.
 
 ## Photographs
 

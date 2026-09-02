@@ -1,0 +1,50 @@
+---
+import Admin from "../../layouts/Admin.astro";
+import { listNews } from "../../lib/content";
+
+const items = await listNews();
+const saved = Astro.url.searchParams.get("saved") === "1";
+---
+
+<Admin title="News" current="news">
+  <h1>News</h1>
+  <p class="lede">Newest items should stay at the top. Leave the link fields blank if there is nothing to point to.</p>
+  {saved && <p class="flash">Saved.</p>}
+
+  {items.map((item) => (
+    <form class="admin-card fields" method="post" action="/api/admin/news">
+      <input type="hidden" name="id" value={item.id} />
+      <div class="two">
+        <label>Year<input name="year" value={item.year} /></label>
+        <label>Flag<input name="flag" value={item.flag ?? ""} placeholder="Upcoming" /></label>
+      </div>
+      <label>Headline<input name="headline" value={item.headline} /></label>
+      <label>Description<textarea name="description">{item.description}</textarea></label>
+      <div class="two">
+        <label>Link label<input name="linkLabel" value={item.linkLabel ?? ""} /></label>
+        <label>Link URL<input name="linkHref" value={item.linkHref ?? ""} /></label>
+      </div>
+      <div class="row-actions">
+        <button type="submit" name="action" value="save">Save</button>
+        <button class="danger" type="submit" name="action" value="delete">Delete</button>
+      </div>
+    </form>
+  ))}
+
+  <form class="admin-card fields" method="post" action="/api/admin/news">
+    <h2>Add news</h2>
+    <div class="two">
+      <label>Year<input name="year" /></label>
+      <label>Flag<input name="flag" placeholder="Upcoming" /></label>
+    </div>
+    <label>Headline<input name="headline" required /></label>
+    <label>Description<textarea name="description"></textarea></label>
+    <div class="two">
+      <label>Link label<input name="linkLabel" /></label>
+      <label>Link URL<input name="linkHref" /></label>
+    </div>
+    <div class="row-actions">
+      <button type="submit" name="action" value="save">Add item</button>
+    </div>
+  </form>
+</Admin>
